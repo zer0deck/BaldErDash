@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import pygame
 import sys
 from settings import HEIGHT, WIDTH, FPS

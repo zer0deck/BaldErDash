@@ -17,13 +17,13 @@ class Level:
             for j, col in enumerate(row):
                 x = j * TILESIZE
                 y = i * TILESIZE
-                if col =='x':
-                    Tile((x,y),[self.visible_sprites, self.obstacle_sprites])
-                    print(f'x={x}, y={y}')
+                if col is 'x':
+                    Tile('AW', (x,y),[self.visible_sprites, self.obstacle_sprites])
                 if col is 'p':
-                    Player((x,y),[self.visible_sprites])
+                    self.player = Player((x,y),[self.visible_sprites], self.obstacle_sprites)
                     
 
     def launch(self):
         self.visible_sprites.draw(self.display_surface)
+        self.visible_sprites.update()
 
