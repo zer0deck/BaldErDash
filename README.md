@@ -14,4 +14,10 @@ creating package is in progress. I'll publish it pip with the first release
 
 This game is distibuted under [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/gpl-3.0.html). Do whatever you want, just want to ask You to indicate [me](github.com/zer0deck) as an original author.
 
+# Credits 
+
+Artwork created by Luis Zuno @ansimuz
+Feeling Grateful?
+You can support my work at https://www.patreon.com/ansimuz
+
 
