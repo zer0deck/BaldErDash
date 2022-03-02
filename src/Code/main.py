@@ -3,7 +3,6 @@
 import pygame
 import sys
 from settings import HEIGHT, WIDTH, FPS
-from background import Background
 from level import Level
 
 class Game:
@@ -12,8 +11,7 @@ class Game:
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('BaldErDash')
         self.clock = pygame.time.Clock()
-        self.background = Background(mapname='Al', screen=self.screen)
-        self.level = Level(surface = self.screen, mapname = 'AW')
+        self.level = Level(surface = self.screen, mapname = 'AW', screen = self.screen)
 
     def launch(self):
         while True:
@@ -22,7 +20,6 @@ class Game:
                     pygame.quit()
                     sys.exit()
             
-            self.background.launch()
             self.level.launch()
             pygame.display.update()
             self.clock.tick(FPS)

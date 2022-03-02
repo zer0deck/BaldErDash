@@ -1,2 +1,5 @@
 .DS_Store
 __pycache__/
+src/Maps/~$Maps.xlsx
+.gitignore
+src/Maps/Maps.xlsx

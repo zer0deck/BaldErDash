@@ -1,11 +1,12 @@
 import pygame
-from settings import testMAP, TILESIZE, SPEED, GRAVITY, map
+from settings import TILESIZE, SPEED, GRAVITY, map
+from background import Background
 from objects import Wall
 from player import Player
 from debug import debug
 
 class Level:
-    def __init__(self, surface, mapname):
+    def __init__(self, surface, mapname, screen):
         
         self.display_surface = surface
         self.world_shift = [0,0]
@@ -13,10 +14,11 @@ class Level:
         self.player_group = pygame.sprite.Group()
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
+        self.background = Background(mapname=mapname, screen=screen)
         self.create_map(mapname)
 
     def create_map(self, mapname):
-        for i, row in enumerate(map()):
+        for i, row in enumerate(map(mapname)):
             for j, col in enumerate(row):
                 x = j * TILESIZE
                 y = i * TILESIZE
@@ -55,6 +57,7 @@ class Level:
 
 
     def launch(self):
+        self.background.update(self.world_shift[0])
         self.player.draw(self.display_surface)
         self.player.update()
         self.visible_sprites.draw(self.display_surface)

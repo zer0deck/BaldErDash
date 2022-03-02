@@ -24,16 +24,13 @@ class Player(pygame.sprite.Sprite):
             if key[pygame.K_SPACE]:
                 self.temp_height = self.rect.y
                 self.direction.y = -self.gravity
-                self.rect.y += self.direction.y * self.speed
                 self.canjump = False
-        else:
-            if self.temp_height != None:
-                if self.temp_height - self.rect.y < 100:
-                    self.direction.y = -self.gravity/2
-                    self.rect.y += self.direction.y * self.speed
-                else:
-                    self.temp_height = None
-                    self.direction.y = self.gravity 
+        if self.temp_height != None:
+            if self.temp_height - self.rect.y < 100:
+                self.direction.y = -self.gravity
+            else:
+                self.temp_height = None
+                self.direction.y = self.gravity 
 
         
         if key[pygame.K_RIGHT]:
@@ -44,8 +41,11 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 0
               
     def move(self, speed, gravity):
+        # if self.direction.magnitude() != 0:
+        #     self.direction = self.direction.normalize()
         self.rect.x += self.direction.x * speed
         self.collision('h')
+
         self.rect.y += self.direction.y * gravity
         self.collision('v')
 
