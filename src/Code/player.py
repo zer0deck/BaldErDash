@@ -1,13 +1,13 @@
 import pygame
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, obstacle_sprites):
-        super().__init__(groups)
+    def __init__(self, pos, obstacle_sprites, speed):
+        super().__init__()
         self.image = pygame.image.load('src/Assets/Enviroments/Tilesets/AW/wall.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
 
         self.direction = pygame.math.Vector2()
-        self.speed = 5
+        self.speed = speed
         self.m = 1
         self.obstacle_sprites = obstacle_sprites
 
@@ -45,14 +45,14 @@ class Player(pygame.sprite.Sprite):
         self.collision('v')
 
     def collision(self, direction):
-        if direction is 'h':
+        if direction == 'h':
             for sprite in self.obstacle_sprites:
                 if sprite.rect.colliderect(self.rect):
                     if self.direction.x > 0: # right
                         self.rect.right = sprite.rect.left
                     if self.direction.x < 0: # left
                         self.rect.left = sprite.rect.right                  
-        elif direction is 'v':
+        elif direction == 'v':
             for sprite in self.obstacle_sprites:
                 if sprite.rect.colliderect(self.rect):
                     if self.direction.y > 0: # down

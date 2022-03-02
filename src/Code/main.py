@@ -14,7 +14,7 @@ class Game:
         pygame.display.set_caption('BaldErDash')
         self.clock = pygame.time.Clock()
         self.iterator = 0
-        self.level = Level()
+        self.level = Level(surface = self.screen, mapname = 'AW')
 
     def launch(self):
         while True:
