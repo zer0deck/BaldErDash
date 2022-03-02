@@ -1,6 +1,6 @@
 
 
-MAP = {
+testMAP = {
 'AW': [
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
     [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
@@ -29,3 +29,12 @@ WIDTH = 1280
 HEIGHT = 720
 FPS = 60
 SPEED = 5
+GRAVITY = 2
+
+def map():
+    mapfile = open('src/Maps/AW.txt', "r")
+    MAP = mapfile.read().splitlines()
+    for i, line in enumerate(MAP):
+        MAP[i] = line.split('\t')
+    mapfile.close()
+    return MAP

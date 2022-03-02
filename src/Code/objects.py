@@ -7,7 +7,8 @@ class Floor(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
     def shift(self, shift_speed):
-        self.rect.x += shift_speed
+        self.rect.x += shift_speed[0]
+        self.rect.y += shift_speed[1]
 
     def update(self, speed):
         self.shift(speed)
@@ -19,7 +20,8 @@ class Wall(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
     
     def shift(self, shift_speed):
-        self.rect.x += shift_speed
+        self.rect.x += shift_speed[0]
+        self.rect.y += shift_speed[1]
 
     def update(self, speed):
         self.shift(speed)
@@ -31,7 +33,8 @@ class Entrance(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
     def shift(self, shift_speed):
-        self.rect.x += shift_speed
+        self.rect.x += shift_speed[0]
+        self.rect.y += shift_speed[1]
 
     def update(self, speed):
         self.shift(speed)
@@ -43,7 +46,8 @@ class Ladder(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
     def shift(self, shift_speed):
-        self.rect.x += shift_speed
+        self.rect.x += shift_speed[0]
+        self.rect.y += shift_speed[1]
 
     def update(self, speed):
         self.shift(speed)

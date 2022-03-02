@@ -3,17 +3,16 @@
 import pygame
 import sys
 from settings import HEIGHT, WIDTH, FPS
+from background import Background
 from level import Level
 
 class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
-        self.background = pygame.image.load('src/Assets/Enviroments/Backgrounds/Al_bg.png')
-        self.background = pygame.transform.scale(self.background,(WIDTH, HEIGHT))
         pygame.display.set_caption('BaldErDash')
         self.clock = pygame.time.Clock()
-        self.iterator = 0
+        self.background = Background(mapname='Al', screen=self.screen)
         self.level = Level(surface = self.screen, mapname = 'AW')
 
     def launch(self):
@@ -22,15 +21,8 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                
-            self.screen.fill('black')
-            self.screen.blit(self.background, (self.iterator, 0))
-            self.screen.blit(self.background,(WIDTH+self.iterator,0))
-            if (self.iterator==-WIDTH):
-                self.screen.blit(self.background,(WIDTH+self.iterator,0))
-                self.iterator=0
-            # завязать на движение
-            self.iterator-=1
+            
+            self.background.launch()
             self.level.launch()
             pygame.display.update()
             self.clock.tick(FPS)
