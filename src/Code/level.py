@@ -46,9 +46,11 @@ class Level:
             self.world_shift = 0
             player.speed = SPEED
 
-
     def launch(self):
-        self.background.update(self.world_shift)
+        self.background.updateC(self.world_shift)
+        self.background.updateB(self.world_shift)
+        self.background.updateM(self.world_shift)
+        self.background.updateF(self.world_shift)
         self.player.draw(self.display_surface)
         self.player.update()
         self.visible_sprites.draw(self.display_surface)

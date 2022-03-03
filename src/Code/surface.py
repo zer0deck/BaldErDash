@@ -14,28 +14,28 @@ class Objectmove(pygame.sprite.Sprite):
 class Floor(Objectmove):
     def __init__(self, map, pos, groups):
         super().__init__(groups)
-        self.image = pygame.image.load(f'src/Assets/Enviroments/Tilesets/{map}/wall.png').convert_alpha()
+        self.image = pygame.image.load(f'src/Assets/Enviroments/Tiles/{map}/Tile_01.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
 
 
 class Wall(Objectmove):
     def __init__(self, map, pos, groups):
         super().__init__(groups)
-        self.image = pygame.image.load(f'src/Assets/Enviroments/Tilesets/{map}/wall.png').convert_alpha()
+        self.image = pygame.image.load(f'src/Assets/Enviroments/Tiles/{map}/Tile_01.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
     
 
 class Entrance(Objectmove):
     def __init__(self, map, pos, groups):
         super().__init__(groups)
-        self.image = pygame.image.load(f'src/Assets/Enviroments/Tilesets/{map}/wall.png').convert_alpha()
+        self.image = pygame.image.load(f'src/Assets/Enviroments/Tiles/{map}/Tile_01.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
 
 
 class Ladder(Objectmove):
     def __init__(self, map, pos, groups):
         super().__init__(groups)
-        self.image = pygame.image.load(f'src/Assets/Enviroments/Tilesets/{map}/wall.png').convert_alpha()
+        self.image = pygame.image.load(f'src/Assets/Enviroments/Tiles/{map}/Tile_01.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
 
     def shift(self, shift_speed):
