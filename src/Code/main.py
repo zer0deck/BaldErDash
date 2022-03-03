@@ -8,7 +8,8 @@ from level import Level
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        flags = pygame.SCALED | pygame.RESIZABLE
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT), flags)
         pygame.display.set_caption('BaldErDash')
         self.clock = pygame.time.Clock()
         self.level = Level(surface = self.screen, mapname = 'AW', screen = self.screen)

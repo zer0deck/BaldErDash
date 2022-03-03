@@ -4,14 +4,13 @@ import pygame
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, obstacle_sprites, speed, gravity):
         super().__init__()
-        self.image = pygame.image.load('src/Assets/Enviroments/Tilesets/AW/wall.png').convert_alpha()
+        self.image = pygame.image.load('src/Assets/Sprites/Bipedal/bipedal-unit1.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
         self.canjump = True
         self.direction = pygame.math.Vector2()
         self.gravity = gravity
         self.speed = speed
         self.temp_height = None
-        self.m = 1
         self.obstacle_sprites = obstacle_sprites
 
         self.isjump = False       
@@ -21,7 +20,7 @@ class Player(pygame.sprite.Sprite):
 
         if self.canjump == True:
             self.direction.y = self.gravity
-            if key[pygame.K_SPACE]:
+            if key[pygame.K_SPACE] or key[pygame.K_UP]:
                 self.temp_height = self.rect.y
                 self.direction.y = -self.gravity
                 self.canjump = False
@@ -33,9 +32,9 @@ class Player(pygame.sprite.Sprite):
                 self.direction.y = self.gravity 
 
         
-        if key[pygame.K_RIGHT]:
+        if key[pygame.K_RIGHT] or key[pygame.K_d]:
             self.direction.x = 1
-        elif key[pygame.K_LEFT]:
+        elif key[pygame.K_LEFT] or key[pygame.K_a]:
             self.direction.x = -1
         else:
             self.direction.x = 0

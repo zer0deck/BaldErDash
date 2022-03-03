@@ -13,6 +13,7 @@ class Background:
         self.screen.fill('black')
         self.screen.blit(self.background, (self.iterator, 0))
         self.screen.blit(self.background,(WIDTH+self.iterator,0))
+        self.screen.blit(self.background, (-WIDTH+self.iterator, 0))
         if (self.iterator==-WIDTH):
             self.screen.blit(self.background,(WIDTH+self.iterator,0))
             self.iterator=0
@@ -20,4 +21,4 @@ class Background:
             self.screen.blit(self.background,(-WIDTH-self.iterator,0))
             self.iterator=0            
         # завязать на движение
-        self.iterator-=shift/2    
+        self.iterator-=shift/4
