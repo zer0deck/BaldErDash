@@ -19,7 +19,7 @@ class Background:
         self.iterM = 0
         self.iterF = 0
 
-    def updateC(self,shift):
+    def updateC(self, shift):
         self.screen.blit(self.cloud, (self.iterC, 0))
         self.screen.blit(self.cloud,(WIDTH+self.iterC,0))
         self.screen.blit(self.cloud, (-WIDTH+self.iterC, 0))
@@ -31,7 +31,7 @@ class Background:
             self.screen.blit(self.cloud,(-WIDTH-self.iterC,0))
             self.iterC=0 
         
-        self.iterC-=shift/10
+        self.iterC+=shift/10
 
     def updateB(self, shift):
         self.screen.blit(self.foreground, (self.iterB, 0))
@@ -45,7 +45,7 @@ class Background:
             self.screen.blit(self.background,(-WIDTH-self.iterB,0))
             self.iterB=0                   
         # завязать на движение
-        self.iterB-=shift/8
+        self.iterB+=shift/8
     
     def updateM(self, shift):
         self.screen.blit(self.middle, (self.iterM, 0))
@@ -59,7 +59,7 @@ class Background:
             self.screen.blit(self.middle,(-WIDTH-self.iterM,0))
             self.iterM=0                   
         # завязать на движение
-        self.iterM-=shift/4
+        self.iterM+=shift/4
 
     def updateF(self, shift):
         self.screen.blit(self.foreground, (self.iterF, 0))
@@ -73,4 +73,10 @@ class Background:
             self.screen.blit(self.foreground,(-WIDTH-self.iterF,0))
             self.iterF=0                   
         # завязать на движение
-        self.iterF-=shift/2 
+        self.iterF+=shift/2 
+
+    def update(self, shift):
+        self.updateC(shift)
+        self.updateB(shift)
+        self.updateM(shift)
+        self.updateF(shift)

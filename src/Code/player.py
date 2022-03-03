@@ -2,9 +2,9 @@ import pygame
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, obstacle_sprites, speed, gravity):
-        super().__init__()
-        self.image = pygame.image.load('src/Assets/Enviroments/Tiles/Park/Tile_01.png').convert_alpha()
+    def __init__(self, pos, group, obstacle_sprites, speed, gravity):
+        super().__init__(group)
+        self.image = pygame.image.load('/Users/zer0deck/Documents/Документы/Git/BaldErDash/src/Assets/Exp/Assets/2D Platformer Tileset/Sprites/Main_Character/Player/run/player_run_00.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
         self.canjump = True
         self.direction = pygame.math.Vector2()

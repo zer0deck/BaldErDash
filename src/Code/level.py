@@ -10,11 +10,10 @@ class Level:
         
         self.display_surface = surface
         self.world_shift = 0
-        self.player = pygame.sprite.GroupSingle()
-        self.player_group = pygame.sprite.Group()
+        self.player = pygame.sprite.Group()
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
-        self.background = Background(mapname=mapname, screen=screen)
+        self.background = Background(mapname=mapname, screen=surface)
         self.create_map(mapname)
 
     def create_map(self, mapname):
@@ -27,11 +26,11 @@ class Level:
                 elif col == 'f':
                     Floor(mapname, (x,y),[self.visible_sprites, self.obstacle_sprites])
                 elif col == 'p':
-                    self.psprite = Player((x,y), self.obstacle_sprites, SPEED, GRAVITY)
-                    self.player.add(self.psprite)
+                    self.psprite = Player((x,y), self.player, self.obstacle_sprites, SPEED, GRAVITY)
+                    # self.player.add(self.psprite)
 
     def scroll(self):
-        player = self.player.sprite
+        player = self.psprite
         x_pos = player.rect.centerx
         x_dir = player.direction.x
         
@@ -47,10 +46,7 @@ class Level:
             player.speed = SPEED
 
     def launch(self):
-        self.background.updateC(self.world_shift)
-        self.background.updateB(self.world_shift)
-        self.background.updateM(self.world_shift)
-        self.background.updateF(self.world_shift)
+        self.background.update(self.world_shift)
         self.player.draw(self.display_surface)
         self.player.update()
         self.visible_sprites.draw(self.display_surface)

@@ -3,3 +3,4 @@ __pycache__/
 src/Maps/~$Maps.xlsx
 .gitignore
 src/Maps/Maps.xlsx
+src/Assets/
