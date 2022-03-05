@@ -1,8 +1,10 @@
 import pygame
-from settings import TILESIZE, SPEED, GRAVITY, map
+# from player import Player
+from settings import TILESIZE, SPEED, GRAVITY
 from background import Background
-from surface import Wall, Floor
-from player import Player
+from map import Map
+# from surface import Wall, Floor
+# from player import Player
 from debug import debug
 
 class Level:
@@ -17,16 +19,18 @@ class Level:
         self.create_map(mapname)
 
     def create_map(self, mapname):
-        for i, row in enumerate(map(mapname)):
-            for j, col in enumerate(row):
-                x = j * TILESIZE
-                y = i * TILESIZE
-                if col == 'x':
-                    Wall(mapname, (x,y),[self.visible_sprites, self.obstacle_sprites])
-                elif col == 'f':
-                    Floor(mapname, (x,y),[self.visible_sprites, self.obstacle_sprites])
-                elif col == 'p':
-                    self.psprite = Player((x,y), self.player, self.obstacle_sprites, SPEED, GRAVITY)
+        fmap = Map(TILESIZE, 'Forest')
+        self.psprite = fmap.drawMap(groups=[self.visible_sprites, self.obstacle_sprites], player=[self.player, self.obstacle_sprites, SPEED, GRAVITY])
+        # for i, row in enumerate(map(mapname)):
+        #     for j, col in enumerate(row):
+        #         x = j * TILESIZE
+        #         y = i * TILESIZE
+        #         if col == 'x':
+        #             Wall(mapname, (x,y),[self.visible_sprites, self.obstacle_sprites])
+        #         elif col == 'f':
+        #             Floor(mapname, (x,y),[self.visible_sprites, self.obstacle_sprites])
+        #         elif col == 'p':
+        #             self.psprite = Player((x,y), self.player, self.obstacle_sprites, SPEED, GRAVITY)
                     # self.player.add(self.psprite)
 
     def scroll(self):

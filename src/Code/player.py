@@ -4,12 +4,12 @@ import pygame
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, group, obstacle_sprites, speed, gravity):
         super().__init__(group)
-        self.image = pygame.image.load('/Users/zer0deck/Documents/Документы/Git/BaldErDash/src/Assets/Exp/Assets/2D Platformer Tileset/Sprites/Main_Character/Player/run/player_run_00.png').convert_alpha()
+        self.image = pygame.image.load('src/Assets/Sprites/Main_Character/Player/run/player_run_00.png').convert_alpha()
         self.rect = self.image.get_rect(topleft = pos)
         self.canjump = True
         self.direction = pygame.math.Vector2()
-        self.gravity = gravity
         self.speed = speed
+        self.gravity = self.speed
         self.temp_height = None
         self.obstacle_sprites = obstacle_sprites
 
@@ -19,7 +19,7 @@ class Player(pygame.sprite.Sprite):
         key = pygame.key.get_pressed()
 
         if self.canjump == True:
-            self.direction.y = self.gravity
+            self.direction.y = self.speed
             if key[pygame.K_SPACE] or key[pygame.K_UP]:
                 self.temp_height = self.rect.y
                 self.direction.y = -self.gravity
@@ -33,15 +33,16 @@ class Player(pygame.sprite.Sprite):
 
         
         if key[pygame.K_RIGHT] or key[pygame.K_d]:
-            self.direction.x = 1
+            self.direction.x = self.speed
         elif key[pygame.K_LEFT] or key[pygame.K_a]:
-            self.direction.x = -1
+            self.direction.x = -self.speed
         else:
             self.direction.x = 0
               
     def move(self, speed, gravity):
-        # if self.direction.magnitude() != 0:
-        #     self.direction = self.direction.normalize()
+        # if self.direction.y < 0:
+        #     if self.direction.magnitude() != 0:
+        #         self.direction = self.direction.normalize()
         self.rect.x += self.direction.x * speed
         self.collision('h')
 
@@ -54,7 +55,7 @@ class Player(pygame.sprite.Sprite):
                 if sprite.rect.colliderect(self.rect):
                     if self.direction.x > 0: # right
                         self.rect.right = sprite.rect.left
-                    if self.direction.x < 0: # left
+                    elif self.direction.x < 0: # left
                         self.rect.left = sprite.rect.right                  
         elif direction == 'v':
             for sprite in self.obstacle_sprites:

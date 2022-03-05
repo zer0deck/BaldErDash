@@ -4,10 +4,11 @@ from settings import WIDTH, HEIGHT
 
 class Background:
     def __init__(self, mapname, screen):
-        self.cloud = pygame.image.load(f'src/Assets/Enviroments/Backgrounds/{mapname}/Day/cloud.png')
-        self.background = pygame.image.load(f'src/Assets/Enviroments/Backgrounds/{mapname}/Day/back.png')
-        self.middle = pygame.image.load(f'src/Assets/Enviroments/Backgrounds/{mapname}/Day/middle.png')
-        self.foreground = pygame.image.load(f'src/Assets/Enviroments/Backgrounds/{mapname}/Day/fore.png')
+        mapname = 'Forest'
+        self.cloud = pygame.image.load(f'src/Assets/Backgrounds/{mapname}/bg_5.png')
+        self.background = pygame.image.load(f'src/Assets/Backgrounds/{mapname}/bg_4.png')
+        self.middle = pygame.image.load(f'src/Assets/Backgrounds/{mapname}/bg_3.png')
+        self.foreground = pygame.image.load(f'src/Assets/Backgrounds/{mapname}/bg_2.png')
         self.cloud = pygame.transform.scale(self.cloud,(WIDTH, HEIGHT))
         self.background = pygame.transform.scale(self.background,(WIDTH, HEIGHT))
         self.middle = pygame.transform.scale(self.middle,(WIDTH, HEIGHT))
