@@ -1,7 +1,11 @@
+import os, sys
 import pygame
 from surface import Object
 from player import Player
-from Maps.Forest import forest
+
+p = os.path.abspath('.')
+sys.path.insert(1, p)
+from src.Maps.Forest import forest
 
 class Map():
     def __init__(self, tilesize, mapname):
