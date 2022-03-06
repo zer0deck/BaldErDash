@@ -11,6 +11,8 @@ class Level:
         self.display_surface = surface
         self.background = Background(mapname=mapname, screen=self.display_surface)
 
+        # collisions
+        self.current_x = 0
         self.world_shift = 0
 
         # init sprites groups
@@ -55,8 +57,18 @@ class Level:
                 if sprite.rect.colliderect(player.rect):
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
+                        player.on_left = True
+                        self.current_x = player.rect.left
                     elif player.direction.x > 0:
                         player.rect.right = sprite.rect.left
+                        player.on_right = True
+                        self.current_x = player.rect.right
+
+            if player.on_left and ( player.rect.left < self.current_x or player.direction.x >= 0 ):
+                player.on_left = False
+            if player.on_right and ( player.rect.right < self.current_x or player.direction.x >= 0 ):
+                player.on_right = False
+
         elif direct == 'v':
             player.gravity()
 
