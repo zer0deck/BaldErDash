@@ -1,11 +1,19 @@
+from decimal import ROUND_DOWN
 import pygame
-from settings import SPEED
+from settings import SPEED, TILESIZE
+from importer import import_folder
 
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.image = pygame.image.load('src/Assets/Sprites/Main_Character/Player/run/player_run_00.png').convert_alpha()
+
+        # set animation
+        self.assets()
+        self.frame_index = 0
+        # ! don't do animation speed aliquot to 1
+        self.animation_speed = 0.3
+        self.image = self.animations['idle'][self.frame_index]
         self.rect = self.image.get_rect(topleft = pos)
 
         # movement params
@@ -13,6 +21,22 @@ class Player(pygame.sprite.Sprite):
         self.speed = SPEED
         self.gravity_v = SPEED/10
         self.jump_speed = -SPEED*2
+
+    def assets(self):
+        c_path = '/Users/zer0deck/Documents/Документы/Git/BaldErDash/src/Assets/Sprites/Main_Character/Player/'
+        self.animations = {'idle': [], 'run': [], 'jump': [], 'roll': [], 'climb': [], 'die':[]}
+
+        for animation in self.animations:
+            path = c_path + animation
+            self.animations[animation] = import_folder(path)
+
+    def animate(self):
+        animation = self.animations['idle']
+        self.frame_index += self.animation_speed
+
+        if self.frame_index > len(animation):
+            self.frame_index = 0
+        self.image = animation[int(self.frame_index)]
 
     def input(self):
         keys = pygame.key.get_pressed()
@@ -37,4 +61,5 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.input()
         self.rect.x += self.direction.x * self.speed
+        self.animate()
 
