@@ -16,7 +16,15 @@ class Player(pygame.sprite.Sprite):
         self.status = 'idle'
         self.image = self.animations[self.status][self.frame_index]
         self.rect = self.image.get_rect(topleft = pos)
+
+        # player status
         self.facing = True
+        self.space_pressed = False
+        self.on_ground = False
+        self.on_ceiling = False
+        self.on_left = False
+        self.on_right = False
+        self.can_jump = 2
 
         # movement params
         self.direction = pygame.math.Vector2(0,0)
@@ -43,6 +51,11 @@ class Player(pygame.sprite.Sprite):
             self.image = animation[int(self.frame_index)]
         else:
             self.image = pygame.transform.flip(animation[int(self.frame_index)], True, False)
+        
+        if self.on_ground:
+            self.rect = self.image.get_rect(midbottom = self.rect.midbottom)
+        elif self.on_ceiling:
+            self.rect = self.image.get_rect(midtop = self.rect.midtop)
 
     def get_status(self):
         if self.direction.y < 0:
@@ -68,7 +81,12 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 0
         
         if keys[pygame.K_SPACE]:
-            self.jump()
+            if self.space_pressed == False:
+                if self.can_jump > 0:
+                    self.jump()
+                self.space_pressed = True
+        else:
+            self.space_pressed = False
     
     def gravity(self):
         self.direction.y  += self.gravity_v
@@ -76,6 +94,7 @@ class Player(pygame.sprite.Sprite):
 
     def jump(self):
         self.direction.y = self.jump_speed
+        self.can_jump -= 1
 
     def update(self):
         self.input()
