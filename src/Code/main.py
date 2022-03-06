@@ -12,7 +12,7 @@ class Game:
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT), flags)
         pygame.display.set_caption('BaldErDash')
         self.clock = pygame.time.Clock()
-        self.level = Level(surface = self.screen, mapname = 'Park', screen = self.screen)
+        self.level = Level(surface = self.screen, mapname = 'Forest')
 
     def launch(self):
         while True:
