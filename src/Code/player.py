@@ -19,7 +19,9 @@ class Player(pygame.sprite.Sprite):
 
         # player status
         self.facing = True
+        self.can_dash = True
         self.space_pressed = False
+        self.shift_pressed = False
         self.on_ground = False
         self.on_ceiling = False
         self.on_left = False
@@ -31,10 +33,13 @@ class Player(pygame.sprite.Sprite):
         self.speed = SPEED
         self.gravity_v = SPEED/10
         self.jump_speed = -SPEED*2
+        self.momentum = 0
+        self.mom_tick = 0
+        self.route = 0
 
     def assets(self):
         c_path = '/Users/zer0deck/Documents/Документы/Git/BaldErDash/src/Assets/Sprites/Main_Character/Player/'
-        self.animations = {'idle': [], 'run': [], 'jump': [], 'roll': [], 'climb': [], 'die':[], 'fall': []}
+        self.animations = {'idle': [], 'run': [], 'jump': [], 'dash': [], 'climb': [], 'die':[], 'fall': []}
 
         for animation in self.animations:
             path = c_path + animation
@@ -66,15 +71,18 @@ class Player(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(midtop = self.rect.midtop)
 
     def get_status(self):
-        if self.direction.y < 0:
-            self.status = 'jump'
-        elif self.direction.y > 1:
-            self.status = 'fall'
+        if self.route != 0 and self.can_dash == False:
+            self.status = 'dash'
         else:
-            if self.direction.x != 0:
-                self.status = 'run'
-            else:
-                self.status = 'idle'
+            if self.direction.y < 0:
+                self.status = 'jump'
+            elif self.direction.y > 1:
+                self.status = 'fall'
+            else: 
+                if self.direction.x != 0:
+                    self.status = 'run'
+                else:
+                    self.status = 'idle'
 
     def input(self):
         keys = pygame.key.get_pressed()
@@ -88,6 +96,23 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
         
+
+        if keys[pygame.K_LSHIFT]:
+            if self.shift_pressed == False:
+                if self.can_dash:
+                    if self.facing:
+                        self.route = 1
+                        
+                    else:
+                        self.route = -1
+                    self.can_dash = False
+                self.shift_pressed = True
+        else:
+            self.shift_pressed = False
+            self.route = 0
+            # self.can_dash = True
+
+
         if keys[pygame.K_SPACE]:
             if self.space_pressed == False:
                 if self.can_jump > 0:
@@ -100,6 +125,15 @@ class Player(pygame.sprite.Sprite):
         self.direction.y  += self.gravity_v
         self.rect.y += self.direction.y
 
+        # dash
+        if not self.can_dash:
+            self.mom_tick += 1
+            self.momentum = self.route * 2
+        if self.mom_tick >= 15:
+            self.momentum = 0 
+            self.mom_tick = 0
+            self.can_dash = True
+
     def jump(self):
         self.direction.y = self.jump_speed
         self.can_jump -= 1
@@ -107,6 +141,7 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.input()
         self.rect.x += self.direction.x * self.speed
+        self.rect.x += self.momentum * self.speed
         self.get_status()
         self.animate(self.status)
 

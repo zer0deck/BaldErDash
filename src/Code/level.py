@@ -33,15 +33,21 @@ class Level:
         player = self.player.sprite
         x_pos = player.rect.centerx
         x_dir = player.direction.x
+        x_mom = player.momentum
+        if x_mom != 0:
+            inertia = SPEED * 2
+        else: inertia = SPEED
         
 
-        if x_pos < WIDTH*0.4 and x_dir < 0:
-            self.world_shift = SPEED
+        if x_pos < WIDTH*0.4 and (x_dir < 0 or x_mom < 0):
+            self.world_shift = inertia
             player.speed = 0
+            player.momentum = 0
             
-        elif x_pos > WIDTH*0.6 and x_dir > 0:
-            self.world_shift = -SPEED
+        elif x_pos > WIDTH*0.6 and (x_dir > 0 or x_mom > 0):
+            self.world_shift = -inertia
             player.speed = 0
+            player.momentum = 0
         else:
             self.world_shift = 0
             player.speed = SPEED
@@ -64,9 +70,9 @@ class Level:
                         player.on_right = True
                         self.current_x = player.rect.right
 
-            if player.on_left and ( player.rect.left < self.current_x or player.direction.x >= 0 ):
+            if player.on_left and ( player.rect.left < self.current_x or ( player.direction.x >= 0 or player.route >= 0) ):
                 player.on_left = False
-            if player.on_right and ( player.rect.right < self.current_x or player.direction.x >= 0 ):
+            if player.on_right and ( player.rect.right < self.current_x or ( player.direction.x >= 0 or player.route >= 0 ) ):
                 player.on_right = False
 
         elif direct == 'v':
