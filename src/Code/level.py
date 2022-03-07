@@ -17,6 +17,7 @@ class Level:
 
         # init sprites groups
         self.player = pygame.sprite.GroupSingle()
+        self.enemies = pygame.sprite.Group()
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
 
@@ -25,7 +26,7 @@ class Level:
 
     def create_level(self, mapname):
         fmap = Map(mapname)
-        player = fmap.create(groups=[self.visible_sprites, self.obstacle_sprites])
+        player = fmap.create(groups=[self.visible_sprites, self.obstacle_sprites], enemies = self.enemies)
         self.player.add(player)
 
     def scroll(self):
@@ -112,6 +113,11 @@ class Level:
         # surface movement
         self.visible_sprites.draw(self.display_surface)
         self.visible_sprites.update(self.world_shift)
+
+        # enemies
+        # self.enemies.draw(self.display_surface)
+        self.enemies.draw(self.display_surface)
+        self.enemies.update()
 
         self.scroll()
 
