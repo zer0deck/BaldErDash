@@ -97,7 +97,7 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 0
         
 
-        if keys[pygame.K_LSHIFT]:
+        if keys[pygame.K_LSHIFT] and (keys[pygame.K_RIGHT] or keys[pygame.K_a] or keys[pygame.K_LEFT] or keys[pygame.K_d]):
             if self.shift_pressed == False:
                 if self.can_dash:
                     if self.facing:
