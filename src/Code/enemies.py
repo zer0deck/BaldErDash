@@ -58,6 +58,9 @@ class Animation(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(topleft = self.rect.topleft)
         elif self.on_ceiling:
             self.rect = self.image.get_rect(midtop = self.rect.midtop)
+    
+    def shift(self, shift_speed):
+        self.rect.x += shift_speed
 
 class Bat(Animation):
     def __init__(self, pos, groups):
@@ -72,7 +75,8 @@ class Bat(Animation):
         else:
             self.status = 'fly'
     
-    def update(self):
+    def update(self, speed):
+        self.shift(speed)
         self.get_status()
         self.animate(self.status)
 

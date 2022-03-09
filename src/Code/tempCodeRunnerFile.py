@@ -1,1 +1,0 @@
-(x,y), self.player, self.obstacle_sprites, SPEED, GRAVITY
