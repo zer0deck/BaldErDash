@@ -28,7 +28,7 @@ class Level:
 
     def create_level(self, mapname):
         fmap = Map(mapname)
-        player = fmap.create(groups=[self.visible_sprites, self.obstacle_sprites], enemies = self.enemies)
+        player = fmap.create(tile_groups=[self.visible_sprites, self.obstacle_sprites], enemy_groups = [self.enemies, self.visible_sprites])
         self.player.add(player)
 
     def scroll(self):
@@ -129,8 +129,8 @@ class Level:
 
         # enemies
         # self.enemies.draw(self.display_surface)
-        self.enemies.draw(self.display_surface)
-        self.enemies.update(self.world_shift)
+        # self.enemies.draw(self.display_surface)
+        # self.enemies.update(self.world_shift)
 
         self.scroll()
 
