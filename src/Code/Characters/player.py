@@ -37,7 +37,7 @@ class Player(pygame.sprite.Sprite):
         self.route = 0
 
     def assets(self):
-        c_path = '/Users/zer0deck/Documents/Документы/Git/BaldErDash/src/Assets/Sprites/Main_Character/Player/'
+        c_path = 'src/Assets/Sprites/Main_Character/Player/'
         self.animations = {'idle': [], 'run': [], 'jump': [], 'dash': [], 'climb': [], 'die':[], 'fall': []}
 
         for animation in self.animations:

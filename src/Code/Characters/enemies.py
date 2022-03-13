@@ -28,7 +28,7 @@ class Animation(pygame.sprite.Sprite):
         self.speed = SPEED
 
     def assets(self, size):
-        c_path = f'/Users/zer0deck/Documents/Документы/Git/BaldErDash/src/Assets/Sprites/Enemy/{self.enemy}/'
+        c_path = f'src/Assets/Sprites/Enemy/{self.enemy}/'
 
         for animation in self.animations:
             path = c_path + animation
