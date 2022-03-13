@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pygame
-from Code.settings import SPEED, WIDTH, HEIGHT
+from Code.settings import SPEED, WIDTH, HEIGHT, JUMPS
 from Code.Enviroment.background import Background
 from Code.Enviroment.map import Map
 from Code.debug import debug
@@ -36,21 +36,19 @@ class Level:
         player = self.player.sprite
         x_pos = player.rect.centerx
         x_dir = player.direction.x
-        x_mom = player.momentum
-        if x_mom != 0:
+        if player.dashing:
             inertia = SPEED * 2
         else: inertia = SPEED
         
 
-        if x_pos < WIDTH*0.4 and (x_dir < 0 or x_mom < 0):
+        if x_pos < WIDTH*0.4 and x_dir < 0:
             self.world_shift = inertia
             player.speed = 0
             player.momentum = 0
             
-        elif x_pos > WIDTH*0.6 and (x_dir > 0 or x_mom > 0):
+        elif x_pos > WIDTH*0.6 and x_dir > 0:
             self.world_shift = -inertia
             player.speed = 0
-            player.momentum = 0
         else:
             self.world_shift = 0
             player.speed = SPEED
@@ -99,7 +97,7 @@ class Level:
                         player.rect.bottom = sprite.rect.top
                         player.direction.y = 0
                         player.on_ground = True
-                        player.can_jump = 2
+                        player.can_jump = JUMPS
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0   

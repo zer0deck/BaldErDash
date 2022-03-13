@@ -1,5 +1,5 @@
 import pygame
-from Code.settings import SPEED, TILESIZE
+from Code.settings import SPEED, TILESIZE, JUMPS, ATTACK_COOLDOWN, DASH_LENGTH, DASH_COOLDOWN
 from Code.importer import import_folder
 
 
@@ -18,23 +18,30 @@ class Player(pygame.sprite.Sprite):
 
         # player status
         self.facing = True
-        self.can_dash = True
         self.space_pressed = False
-        self.shift_pressed = False
         self.on_ground = False
         self.on_ceiling = False
         self.on_left = False
         self.on_right = False
-        self.can_jump = 2
+        self.can_jump = JUMPS
+
+        # player actions status
+        self.shift_pressed = False
+        self.attacking = False
+        self.attack_time = None
+        self.dashing = False
+        self.can_dash = True
+
+        # cooldowns
+        self.attack_cooldown = ATTACK_COOLDOWN
+        self.dash_length = DASH_LENGTH
+        self.dash_cooldown = DASH_COOLDOWN
 
         # movement params
         self.direction = pygame.math.Vector2(0,0)
         self.speed = SPEED
         self.gravity_v = SPEED/10
         self.jump_speed = -SPEED*2
-        self.momentum = 0
-        self.mom_tick = 0
-        self.route = 0
 
     def assets(self):
         c_path = 'src/Assets/Sprites/Main_Character/Player/'
@@ -70,7 +77,7 @@ class Player(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(midtop = self.rect.midtop)
 
     def get_status(self):
-        if self.route != 0 and self.can_dash == False:
+        if self.dashing:
             self.status = 'dash'
         else:
             if self.direction.y < 0:
@@ -86,31 +93,26 @@ class Player(pygame.sprite.Sprite):
     def input(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_RIGHT] or keys [pygame.K_d]:
+        # movement input
+
+        if keys[pygame.K_RIGHT]:
             self.direction.x = 1
             self.facing = True
-        elif keys[pygame.K_LEFT] or keys [pygame.K_a]:
+        elif keys[pygame.K_LEFT]:
             self.direction.x = -1
             self.facing = False
         else:
             self.direction.x = 0
         
 
-        if keys[pygame.K_LSHIFT] and (keys[pygame.K_RIGHT] or keys[pygame.K_a] or keys[pygame.K_LEFT] or keys[pygame.K_d]):
-            if self.shift_pressed == False:
-                if self.can_dash:
-                    if self.facing:
-                        self.route = 1
-                        
-                    else:
-                        self.route = -1
-                    self.can_dash = False
-                self.shift_pressed = True
-        else:
-            self.shift_pressed = False
-            self.route = 0
-            # self.can_dash = True
+        if keys[pygame.K_LSHIFT] and (keys[pygame.K_RIGHT] or keys[pygame.K_LEFT]) and not self.dashing and self.can_dash:
+            self.dashing = True
+            self.can_dash = False
+            self.dash_time = pygame.time.get_ticks()
+            # self.speed = SPEED * 2
+            self.direction.x = 2
 
+        # jump input
 
         if keys[pygame.K_SPACE]:
             if self.space_pressed == False:
@@ -120,18 +122,32 @@ class Player(pygame.sprite.Sprite):
         else:
             self.space_pressed = False
     
+        # attack input
+        if keys[pygame.K_e] and not self.attacking:
+            self.attacking = True
+            self.attack_time = pygame.time.get_ticks()
+
+        if keys[pygame.K_r] and not self.attacking:
+            self.attacking = True
+
+    def cooldowns(self):
+        current_time = pygame.time.get_ticks()
+
+        if self.attacking:
+            if current_time - self.attack_time >= self.attack_cooldown:
+                self.attacking = False
+
+        if self.dashing:
+            self.direction.x = 2
+            if current_time - self.dash_time >= self.dash_length:
+                self.dashing = False
+        if not self.can_dash:
+            if current_time - self.dash_time >= self.dash_cooldown:
+                self.can_dash = True
+
     def gravity(self):
         self.direction.y  += self.gravity_v
         self.rect.y += self.direction.y
-
-        # dash
-        if not self.can_dash:
-            self.mom_tick += 1
-            self.momentum = self.route * 2
-        if self.mom_tick >= 15:
-            self.momentum = 0 
-            self.mom_tick = 0
-            self.can_dash = True
 
     def jump(self):
         self.direction.y = self.jump_speed
@@ -139,8 +155,9 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.input()
+        self.cooldowns()
         self.rect.x += self.direction.x * self.speed
-        self.rect.x += self.momentum * self.speed
+        # self.rect.x += self.momentum * self.speed
         self.get_status()
         self.animate(self.status)
 
