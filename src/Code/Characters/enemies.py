@@ -1,6 +1,6 @@
 import pygame
-from importer import import_folder
-from settings import SPEED
+from Code.importer import import_folder
+from Code.settings import SPEED
 
 class Animation(pygame.sprite.Sprite):
     def __init__(self, pos, groups, animations, enemy, status, size = 1):

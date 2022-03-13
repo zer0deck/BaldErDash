@@ -1,6 +1,6 @@
 import pygame
 from os import walk
-from settings import TILESIZE
+from Code.settings import TILESIZE
 
 def import_folder(path, size_coef=1):
     images = []

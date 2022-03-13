@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import pygame
-from settings import SPEED, WIDTH, HEIGHT
-from background import Background
-from map import Map
-from debug import debug
+from Code.settings import SPEED, WIDTH, HEIGHT
+from Code.Enviroment.background import Background
+from Code.Enviroment.map import Map
+from Code.debug import debug
 
 class Level:
     def __init__(self, surface, mapname):

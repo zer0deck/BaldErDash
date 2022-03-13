@@ -2,8 +2,8 @@
 
 import pygame
 import sys
-from settings import HEIGHT, WIDTH, FPS
-from level import Level
+from Code.settings import HEIGHT, WIDTH, FPS
+from Code.Enviroment.level import Level
 
 class Game:
     def __init__(self):

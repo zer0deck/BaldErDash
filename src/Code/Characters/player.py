@@ -1,7 +1,6 @@
-from decimal import ROUND_DOWN
 import pygame
-from settings import SPEED, TILESIZE
-from importer import import_folder
+from Code.settings import SPEED, TILESIZE
+from Code.importer import import_folder
 
 
 class Player(pygame.sprite.Sprite):

@@ -1,13 +1,11 @@
 import os, sys
 import pygame
-from surface import Tile
-from player import Player
-from settings import TILESIZE
-from enemies import Bat
+from Code.Enviroment.surface import Tile
+from Code.Characters.player import Player
+from Code.settings import TILESIZE
+from Code.Characters.enemies import Bat
 
-p = os.path.abspath('.')
-sys.path.insert(1, p)
-from src.Maps.Forest import forest
+from Maps.Forest import forest
 
 class Map():
     def __init__(self, mapname):

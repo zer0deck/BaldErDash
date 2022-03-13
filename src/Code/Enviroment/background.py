@@ -1,5 +1,5 @@
 import pygame
-from settings import WIDTH, HEIGHT
+from Code.settings import WIDTH, HEIGHT
 
 
 class Background:
