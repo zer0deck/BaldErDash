@@ -82,9 +82,9 @@ class Level:
                         player.on_right = True
                         self.current_x = player.rect.right
 
-            if player.on_left and ( player.rect.left < self.current_x or ( player.direction.x >= 0 or player.route >= 0) ):
+            if player.on_left and ( player.rect.left < self.current_x or ( player.direction.x >= 0 ) ):
                 player.on_left = False
-            if player.on_right and ( player.rect.right < self.current_x or ( player.direction.x >= 0 or player.route >= 0 ) ):
+            if player.on_right and ( player.rect.right < self.current_x or ( player.direction.x >= 0 ) ):
                 player.on_right = False
 
         elif direct == 'v':

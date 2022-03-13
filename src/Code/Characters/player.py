@@ -4,10 +4,11 @@ from Code.importer import import_folder
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos):
+    def __init__(self, pos, type='Player Sword'):
         super().__init__()
 
         # set animation
+        self.type = type
         self.assets()
         self.frame_index = 0
         # ! don't do animation speed aliquot to 1
@@ -44,8 +45,14 @@ class Player(pygame.sprite.Sprite):
         self.jump_speed = -SPEED*2
 
     def assets(self):
-        c_path = 'src/Assets/Sprites/Main_Character/Player/'
-        self.animations = {'idle': [], 'run': [], 'jump': [], 'dash': [], 'climb': [], 'die':[], 'fall': []}
+        c_path = f'src/Assets/Sprites/Main_Character/{self.type}/'
+        self.animations = {'climb': [], 'dash': [], 'die': [], 'fall': [], 'idle': [], 'jump': [], 'run': []}
+        if self.type == 'Player Bow':
+            self.animations['attack'] = []
+        elif self.type == 'Player Spear' or 'Player Sword':
+            self.animations['attack_1'] = []
+            self.animations['attack_2'] = []
+            self.animations['attack_3'] = []
 
         for animation in self.animations:
             path = c_path + animation
@@ -94,23 +101,29 @@ class Player(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
 
         # movement input
-
-        if keys[pygame.K_RIGHT]:
-            self.direction.x = 1
-            self.facing = True
-        elif keys[pygame.K_LEFT]:
-            self.direction.x = -1
-            self.facing = False
-        else:
-            self.direction.x = 0
-        
-
-        if keys[pygame.K_LSHIFT] and (keys[pygame.K_RIGHT] or keys[pygame.K_LEFT]) and not self.dashing and self.can_dash:
-            self.dashing = True
-            self.can_dash = False
-            self.dash_time = pygame.time.get_ticks()
-            # self.speed = SPEED * 2
-            self.direction.x = 2
+        if not self.dashing:
+            if keys[pygame.K_RIGHT]:
+                self.direction.x = 1
+                self.facing = True
+            elif keys[pygame.K_LEFT]:
+                self.direction.x = -1
+                self.facing = False
+            else:
+                self.direction.x = 0
+            
+            if self.can_dash:
+                if keys[pygame.K_LSHIFT] and keys[pygame.K_RIGHT]:
+                    self.dashing = True
+                    self.facing = True
+                    self.can_dash = False
+                    self.dash_time = pygame.time.get_ticks()
+                    self.direction.x = 2
+                elif keys[pygame.K_LSHIFT] and keys[pygame.K_LEFT]:
+                    self.dashing = True
+                    self.can_dash = False
+                    self.facing = False
+                    self.dash_time = pygame.time.get_ticks()
+                    self.direction.x = -2
 
         # jump input
 
@@ -123,6 +136,7 @@ class Player(pygame.sprite.Sprite):
             self.space_pressed = False
     
         # attack input
+        
         if keys[pygame.K_e] and not self.attacking:
             self.attacking = True
             self.attack_time = pygame.time.get_ticks()
@@ -138,7 +152,7 @@ class Player(pygame.sprite.Sprite):
                 self.attacking = False
 
         if self.dashing:
-            self.direction.x = 2
+            # self.direction.x = 2
             if current_time - self.dash_time >= self.dash_length:
                 self.dashing = False
         if not self.can_dash:
