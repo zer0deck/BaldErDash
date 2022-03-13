@@ -32,6 +32,7 @@ class Player(pygame.sprite.Sprite):
         self.attack_time = None
         self.dashing = False
         self.can_dash = True
+        self.attack_type = 'attack_1'
 
         # cooldowns
         self.attack_cooldown = ATTACK_COOLDOWN
@@ -62,7 +63,9 @@ class Player(pygame.sprite.Sprite):
         animation = self.animations[status]
         self.frame_index += self.animation_speed
 
-        if self.frame_index > len(animation):
+        if self.frame_index > len(animation)-1:
+            if self.attacking == True:
+                self.attacking = False
             self.frame_index = 0
         
         if self.facing:
@@ -86,7 +89,12 @@ class Player(pygame.sprite.Sprite):
     def get_status(self):
         if self.dashing:
             self.status = 'dash'
+            self.animation_speed = 0.4
+        elif self.attacking:
+            self.animation_speed = 0.2
+            self.status = self.attack_type
         else:
+            self.animation_speed = 0.3
             if self.direction.y < 0:
                 self.status = 'jump'
             elif self.direction.y > 1:
@@ -100,8 +108,33 @@ class Player(pygame.sprite.Sprite):
     def input(self):
         keys = pygame.key.get_pressed()
 
+        # attack input
+        if self.type != 'Player':
+            if not self.attacking:
+                if keys[pygame.K_e]:
+                    self.attacking = True
+                    self.attack_type = 'attack_1'
+                    self.attack_time = pygame.time.get_ticks()
+                    self.direction.x = 0
+                    self.frame_index = 0
+
+                elif keys[pygame.K_r]:
+                    self.attacking = True
+                    self.attack_type = 'attack_2'
+                    self.attack_time = pygame.time.get_ticks()
+                    self.frame_index = 0
+                    self.direction.x = 0
+
+                elif keys[pygame.K_t]:
+                    self.attacking = True
+                    self.attack_type = 'attack_3'
+                    self.attack_time = pygame.time.get_ticks()
+                    self.frame_index = 0
+                    self.direction.x = 0
+
+
         # movement input
-        if not self.dashing:
+        if not self.dashing and not self.attacking:
             if keys[pygame.K_RIGHT]:
                 self.direction.x = 1
                 self.facing = True
@@ -118,12 +151,14 @@ class Player(pygame.sprite.Sprite):
                     self.can_dash = False
                     self.dash_time = pygame.time.get_ticks()
                     self.direction.x = 2
+                    self.frame_index = 0
                 elif keys[pygame.K_LSHIFT] and keys[pygame.K_LEFT]:
                     self.dashing = True
                     self.can_dash = False
                     self.facing = False
                     self.dash_time = pygame.time.get_ticks()
                     self.direction.x = -2
+                    self.frame_index = 0
 
         # jump input
 
@@ -134,22 +169,14 @@ class Player(pygame.sprite.Sprite):
                 self.space_pressed = True
         else:
             self.space_pressed = False
-    
-        # attack input
-        
-        if keys[pygame.K_e] and not self.attacking:
-            self.attacking = True
-            self.attack_time = pygame.time.get_ticks()
 
-        if keys[pygame.K_r] and not self.attacking:
-            self.attacking = True
 
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
 
-        if self.attacking:
-            if current_time - self.attack_time >= self.attack_cooldown:
-                self.attacking = False
+        # if self.attacking:
+        #     if current_time - self.attack_time >= self.attack_cooldown:
+        #         self.attacking = False
 
         if self.dashing:
             # self.direction.x = 2
