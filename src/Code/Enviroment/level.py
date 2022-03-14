@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pygame
-from Code.settings import SPEED, WIDTH, HEIGHT, JUMPS
+from Code.settings import SPEED, WIDTH, HEIGHT, JUMPS, DASH_POWER
 from Code.Enviroment.background import Background
 from Code.Enviroment.map import Map
 from Code.debug import debug
@@ -37,14 +37,13 @@ class Level:
         x_pos = player.rect.centerx
         x_dir = player.direction.x
         if player.dashing:
-            inertia = SPEED * 2
+            inertia = SPEED * DASH_POWER
         else: inertia = SPEED
         
 
         if x_pos < WIDTH*0.4 and x_dir < 0:
             self.world_shift = inertia
             player.speed = 0
-            player.momentum = 0
             
         elif x_pos > WIDTH*0.6 and x_dir > 0:
             self.world_shift = -inertia

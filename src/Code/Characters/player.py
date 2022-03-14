@@ -1,6 +1,7 @@
 import pygame
-from Code.settings import SPEED, TILESIZE, JUMPS, ATTACK_COOLDOWN, DASH_LENGTH, DASH_COOLDOWN
+from Code.settings import SPEED, JUMPS, ATTACK_COOLDOWN, DASH_COOLDOWN
 from Code.importer import import_folder
+from src.Code.settings import DASH_POWER
 
 
 class Player(pygame.sprite.Sprite):
@@ -31,12 +32,12 @@ class Player(pygame.sprite.Sprite):
         self.attacking = False
         self.attack_time = None
         self.dashing = False
+        self.can_attack = True
         self.can_dash = True
         self.attack_type = 'attack_1'
 
         # cooldowns
         self.attack_cooldown = ATTACK_COOLDOWN
-        self.dash_length = DASH_LENGTH
         self.dash_cooldown = DASH_COOLDOWN
 
         # movement params
@@ -66,6 +67,8 @@ class Player(pygame.sprite.Sprite):
         if self.frame_index > len(animation)-1:
             if self.attacking == True:
                 self.attacking = False
+            elif self.dashing == True:
+                self.dashing = False
             self.frame_index = 0
         
         if self.facing:
@@ -132,7 +135,6 @@ class Player(pygame.sprite.Sprite):
                     self.frame_index = 0
                     self.direction.x = 0
 
-
         # movement input
         if not self.dashing and not self.attacking:
             if keys[pygame.K_RIGHT]:
@@ -150,14 +152,14 @@ class Player(pygame.sprite.Sprite):
                     self.facing = True
                     self.can_dash = False
                     self.dash_time = pygame.time.get_ticks()
-                    self.direction.x = 2
+                    self.direction.x = DASH_POWER
                     self.frame_index = 0
                 elif keys[pygame.K_LSHIFT] and keys[pygame.K_LEFT]:
                     self.dashing = True
                     self.can_dash = False
                     self.facing = False
                     self.dash_time = pygame.time.get_ticks()
-                    self.direction.x = -2
+                    self.direction.x = -DASH_POWER
                     self.frame_index = 0
 
         # jump input
@@ -170,18 +172,13 @@ class Player(pygame.sprite.Sprite):
         else:
             self.space_pressed = False
 
-
     def cooldowns(self):
         current_time = pygame.time.get_ticks()
 
-        # if self.attacking:
-        #     if current_time - self.attack_time >= self.attack_cooldown:
-        #         self.attacking = False
+        if not self.can_attack:
+            if current_time - self.attack_time >= ATTACK_COOLDOWN:
+                self.can_attack = False
 
-        if self.dashing:
-            # self.direction.x = 2
-            if current_time - self.dash_time >= self.dash_length:
-                self.dashing = False
         if not self.can_dash:
             if current_time - self.dash_time >= self.dash_cooldown:
                 self.can_dash = True
