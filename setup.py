@@ -6,7 +6,7 @@ setup(name='BaldErDash',
       long_description="No Hair. Dashes. I'sorry if you didn't take a joke...",
       classifiers=[
         'Development Status :: 0.0.0.0.1 - Alpha',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: GPLv3 Licence',
         'Programming Language :: Python :: 3.9',
         'Topic :: Game developement :: Pygame',
       ],
