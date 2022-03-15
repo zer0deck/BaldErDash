@@ -19,7 +19,7 @@ class Map():
             self.dic[ind+1] = image
         
     
-    def create(self, tile_groups, enemy_groups):
+    def create(self, tile_groups, enemy_groups, player_attack):
             for i,row in enumerate(self.array):
                 for j,tile in enumerate(row):
                     x = j * TILESIZE
@@ -28,7 +28,7 @@ class Map():
                         Bat((x,y), enemy_groups)
                         continue
                     elif tile == 'p':
-                        player = Player((x,y))
+                        player = Player((x,y), player_attack)
                         continue
                     elif tile > 0:
                         Tile((x,y), tile_groups, image = self.dic[tile])

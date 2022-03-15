@@ -5,6 +5,7 @@ from Code.settings import SPEED, WIDTH, HEIGHT, JUMPS, DASH_POWER
 from Code.Enviroment.background import Background
 from Code.Enviroment.map import Map
 from Code.debug import debug
+from Code.Enviroment.wearpons import Wearpon
 
 class Level:
     def __init__(self, surface, mapname):
@@ -22,13 +23,14 @@ class Level:
         self.enemies = pygame.sprite.Group()
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
+        self.hitboxes = pygame.sprite.Group()
 
         # map creation
         self.create_level(mapname)
 
     def create_level(self, mapname):
         fmap = Map(mapname)
-        player = fmap.create(tile_groups=[self.visible_sprites, self.obstacle_sprites], enemy_groups = [self.enemies, self.visible_sprites])
+        player = fmap.create(tile_groups=[self.visible_sprites, self.obstacle_sprites], enemy_groups = [self.enemies, self.hitboxes], player_attack= self.player_attack)
         self.player.add(player)
 
     def scroll(self):
@@ -54,20 +56,9 @@ class Level:
 
     def collision(self, direct):
         player = self.player.sprite
-        # enemies = self.enemies.sprites()
 
         if direct == 'h':
             player.rect.x += player.direction.x * player.speed
-
-            # for enemy in enemies:
-            #     for sprite in self.obstacle_sprites.sprites():
-            #         if sprite.rect.colliderect(enemy.rect):
-            #             if enemy.facing:
-            #                 enemy.rect.left = sprite.rect.right
-            #                 enemy.on_left = True
-            #             elif not enemy.facing:
-            #                 enemy.rect.right = sprite.rect.left
-            #                 player.on_right = True
 
             # horizontal coll
             for sprite in self.obstacle_sprites.sprites():
@@ -108,6 +99,9 @@ class Level:
                 player.on_ceiling = False
         
         else: print('crash')
+
+    def player_attack(self):
+        Wearpon(self.player.sprite, [self.hitboxes])
 
     def launch(self, debug_v = True):
 
