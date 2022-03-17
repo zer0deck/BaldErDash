@@ -6,7 +6,7 @@ setup(name='BaldErDash',
       long_description="No Hair. Dashes. I'sorry if you didn't take a joke...",
       classifiers=[
         'Development Status :: 0.0.0.0.1 - Alpha',
-        'License :: OSI Approved :: GPLv3 Licence',
+        'License :: OSI Approved :: Lesser General Public License, Creative Commons',
         'Programming Language :: Python :: 3.9',
         'Topic :: Game developement :: Pygame',
       ],
@@ -14,7 +14,7 @@ setup(name='BaldErDash',
       url='http://github.com/zer0deck/BaldErDash',
       author='@zer0deck/Aleksey Grandilevskii',
       author_email='zer0deck@icloud.com',
-      license='GPLv3',
+      license='LGPL, CC',
       packages=find_packages(),
       install_requires=[
           'pygame'
