@@ -5,15 +5,15 @@ from Code.Characters.player import Player
 from Code.settings import TILESIZE
 from Code.Characters.enemies import Bat
 
-from Maps.Forest import forest
+from Maps.DevLevel import dev
 
 class Map():
     def __init__(self, mapname):
         pygame.init()
         self.images = []
         self. array = []
-        if mapname == 'Forest':
-            self.array, self.images = forest(TILESIZE)
+        if mapname == 'DevLevel':
+            self.array, self.images = dev(TILESIZE)
         self.dic = {}
         for ind, image in enumerate(self.images):
             self.dic[ind+1] = image
