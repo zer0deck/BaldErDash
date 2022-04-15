@@ -1,38 +1,71 @@
 # -*- coding: utf-8 -*-
 
+import os
+import shutil
+import sys
+
 import pygame
-import sys, shutil
-from Code.settings import HEIGHT, WIDTH, FPS
-from Code.Enviroment.level import Level
+
+from .Code.Enviroment.level import Level
+from .Code.settings import FPS, HEIGHT, WIDTH
+
 
 class Game:
     def __init__(self):
+        self.path = os.path.dirname(os.path.abspath(__file__))
+        if "Assets" not in os.listdir(self.path):
+            print(
+                "\nDo you want to load the assets pack?\nThis may require internet connection.\n\n"
+            )
+            answer = input("[y/n]")
+            if answer == "y":
+                import zipfile
+
+                import wget
+
+                print("Beginning file download with wget module")
+                wget.download(
+                    "zer0deck.ru/balderdash/assetspack.zip",
+                    f"{self.path}/assetspack.zip",
+                )
+                z_f = zipfile.ZipFile(f"{self.path}/assetspack.zip")
+                z_f.extractall(f"{self.path}/Assets")
+                z_f.close()
+                os.remove(f"{self.path}/assetspack.zip")
         pygame.init()
+        # time.sleep(30)
         flags = pygame.SCALED | pygame.RESIZABLE
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT), flags)
-        pygame.display.set_caption('BaldErDash')
+        pygame.display.set_caption("BaldErDash")
         self.clock = pygame.time.Clock()
-        self.level = Level(surface = self.screen, mapname = 'DevLevel')
+        self.level = Level(surface=self.screen, mapname="DevLevel")
 
     def launch(self):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    pathes = ['src/Maps/__pycache__', 'src/Code/Characters/__pycache__', 'src/Code/__pycache__', 'src/Code/Enviroment/__pycache__', 'src/__pycache__']
+                    pathes = [
+                        f"{self.path}/Maps/__pycache__",
+                        f"{self.path}/Code/Characters/__pycache__",
+                        f"{self.path}/Code/__pycache__",
+                        f"{self.path}/Code/Enviroment/__pycache__",
+                        f"{self.path}/__pycache__",
+                    ]
                     for path in pathes:
                         try:
                             shutil.rmtree(path)
-                        except: # OSError as e:
+                        except:  # OSError as e:
                             # print("Error: %s : %s" % (path, e.strerror))
                             continue
 
                     sys.exit()
-            
+
             self.level.launch()
             pygame.display.update()
             self.clock.tick(FPS)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     game = Game()
     game.launch()
