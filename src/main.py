@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 
+# TODO LIST:
+# 1. Add NPC interactions
+# 2. Add enemies AI
+# 3. Add levels
+# 4. Fix assets
+# 5. Add more UI
+# 6. Add story
+# 7. Add player progress ability
+
 import os
 import shutil
 import sys
@@ -33,7 +42,6 @@ class Game:
                 z_f.close()
                 os.remove(f"{self.path}/assetspack.zip")
         pygame.init()
-        # time.sleep(30)
         flags = pygame.SCALED | pygame.RESIZABLE
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT), flags)
         pygame.display.set_caption("BaldErDash")
