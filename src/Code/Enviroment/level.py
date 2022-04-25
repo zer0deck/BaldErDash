@@ -3,7 +3,7 @@
 import pygame
 
 from ..debug import debug
-from ..settings import DASH_POWER, HEIGHT, JUMPS, SPEED, WIDTH
+from ..settings import DASH_POWER, JUMPS, SPEED, WIDTH
 from ..ui import UI
 from .background import Background
 from .map import Map
@@ -159,7 +159,8 @@ class Level:
         self.background.update(self.world_shift)
 
         # player movement
-        self.show_hitboxes()
+        if debug_v == True:
+            self.show_hitboxes()
         self.player.draw(self.display_surface)
         self.player.update()
         self.collision("h")

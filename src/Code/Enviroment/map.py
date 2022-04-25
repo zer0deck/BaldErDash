@@ -1,7 +1,22 @@
 import pygame
 
 from ...Maps import dev
-from ..Characters.enemies import Bat
+from ..Characters.enemies import (
+    Bat,
+    Bee,
+    Big_Boar,
+    Boar,
+    Goblin_Axe,
+    Goblin_Halberd,
+    Goblin_Rider,
+    Goblin_Spear,
+    Skeleton,
+    Skeleton_Archer,
+    Skeleton_Boss,
+    Skeleton_Mage,
+    Skeleton_Shield,
+    Skeleton_Spear,
+)
 from ..Characters.player import Player
 from ..settings import TILESIZE
 from .surface import Tile

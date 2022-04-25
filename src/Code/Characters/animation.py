@@ -9,7 +9,7 @@ __all__ = ["Animation"]
 
 
 class Animation(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, animations, type, status, size=1):
+    def __init__(self, pos, groups, animations, type, status, size=0.5):
         super().__init__(groups)
         # animation
         self.animations = animations
@@ -20,7 +20,7 @@ class Animation(pygame.sprite.Sprite):
         self.status = status
         self.image = self.animations[self.status][self.frame_index]
         self.rect = self.image.get_rect(topleft=pos)
-        self.damagebox = self.rect.inflate(-130, -90)
+        self.damagebox = self.rect.inflate(-80, -60)
 
         # character status
         self.facing = True
