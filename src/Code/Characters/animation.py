@@ -1,3 +1,5 @@
+import os
+
 import pygame
 
 from ..importer import import_folder
@@ -18,6 +20,7 @@ class Animation(pygame.sprite.Sprite):
         self.status = status
         self.image = self.animations[self.status][self.frame_index]
         self.rect = self.image.get_rect(topleft=pos)
+        self.damagebox = self.rect.inflate(-130, -90)
 
         # character status
         self.facing = True
@@ -25,6 +28,8 @@ class Animation(pygame.sprite.Sprite):
         self.on_ceiling = False
         self.on_left = False
         self.on_right = False
+
+        self.dead = False
 
         # movement params
         self.direction = pygame.math.Vector2(0, 0)
@@ -39,9 +44,13 @@ class Animation(pygame.sprite.Sprite):
 
     def animate(self, status):
         animation = self.animations[status]
+        if self.status == "die":
+            self.dead = True
         self.frame_index += self.animation_speed
 
         if self.frame_index > len(animation):
+            if self.dead:
+                self.kill()
             self.frame_index = 0
 
         if self.facing:
@@ -63,6 +72,8 @@ class Animation(pygame.sprite.Sprite):
             self.rect = self.image.get_rect(topleft=self.rect.topleft)
         elif self.on_ceiling:
             self.rect = self.image.get_rect(midtop=self.rect.midtop)
+
+        self.damagebox.center = self.rect.center
 
     def shift(self, shift_speed):
         self.rect.x += shift_speed

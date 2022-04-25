@@ -29,7 +29,6 @@ class Level:
         self.enemies = pygame.sprite.Group()
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
-        self.hitboxes = pygame.sprite.Group()
         self.damageboxes = pygame.sprite.Group()
 
         # UI
@@ -42,8 +41,8 @@ class Level:
         fmap = Map(mapname)
         player = fmap.create(
             tile_groups=[self.visible_sprites, self.obstacle_sprites],
-            enemy_groups=[self.visible_sprites, self.hitboxes],
-            player_attack=[self.player_attack, self.destroy_damageboxes],
+            enemy_groups=[self.visible_sprites, self.enemies],
+            player_attack=[self.player_attack, self.destroy_attack],
         )
         self.player.add(player)
 
@@ -95,9 +94,12 @@ class Level:
             ):
                 player.on_right = False
 
-            for sprite in self.hitboxes.sprites():
-                if sprite.rect.colliderect(player.rect):
+            for sprite in self.enemies.sprites():
+                if sprite.damagebox.colliderect(player.hitbox):
                     player.health -= 1
+                if self.current_attack:
+                    if self.current_attack.rect.colliderect(sprite.rect):
+                        sprite.health -= player.wearpon[player.attack_type]["damage"]
 
         elif direct == "v":
             player.gravity()
@@ -128,17 +130,36 @@ class Level:
             self.player.sprite, [self.visible_sprites, self.damageboxes]
         )
 
-    def destroy_damageboxes(self):
+    def destroy_attack(self):
         if self.current_attack:
             self.current_attack.kill()
         self.current_attack = None
 
-    def launch(self, debug_v=False):
+    def show_hitboxes(self):
+        pygame.draw.rect(
+            self.display_surface,
+            color=(1, 1, 255),
+            rect=self.player.sprite.rect,
+        )
+        pygame.draw.rect(
+            self.display_surface,
+            color=(1, 255, 1),
+            rect=self.player.sprite.hitbox,
+        )
+        for sprite in self.enemies.sprites():
+            pygame.draw.rect(
+                self.display_surface,
+                color=(255, 1, 1),
+                rect=sprite.damagebox,
+            )
+
+    def launch(self, debug_v=True):
 
         # background movement
         self.background.update(self.world_shift)
 
         # player movement
+        self.show_hitboxes()
         self.player.draw(self.display_surface)
         self.player.update()
         self.collision("h")

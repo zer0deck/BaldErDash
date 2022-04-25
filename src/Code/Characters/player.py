@@ -1,3 +1,5 @@
+import os
+
 import pygame
 
 from ..importer import import_folder
@@ -26,7 +28,10 @@ class Player(pygame.sprite.Sprite):
         self.animation_speed = 0.3
         self.status = "idle"
         self.image = self.animations[self.status][self.frame_index]
-        self.rect = self.image.get_rect(topleft=pos)
+        self.rect = self.image.get_rect(center=pos)
+        self.hitbox = self.rect.inflate(-90, -60)
+        # THIS DOESN'T HELP:
+        # self.rect.center = self.image.get_rect().center
 
         # player status
         self.exp = 123
@@ -270,5 +275,6 @@ class Player(pygame.sprite.Sprite):
         self.input()
         self.cooldowns()
         self.rect.x += self.direction.x * self.speed
+        self.hitbox.center = self.rect.center
         self.get_status()
         self.animate(self.status)
