@@ -48,7 +48,7 @@ class Animation(pygame.sprite.Sprite):
             self.dead = True
         self.frame_index += self.animation_speed
 
-        if self.frame_index > len(animation):
+        if self.frame_index > len(animation) - 1:
             if self.dead:
                 self.kill()
             self.frame_index = 0

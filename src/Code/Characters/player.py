@@ -55,6 +55,7 @@ class Player(pygame.sprite.Sprite):
         self.can_attack_2 = True
         self.can_attack_3 = True
         self.can_dash = True
+        self.dead = False
         self.attack_type = "attack_1"
 
         # cooldowns
@@ -117,6 +118,8 @@ class Player(pygame.sprite.Sprite):
                 self.attacking = False
             elif self.dashing == True:
                 self.dashing = False
+            elif self.status == "die":
+                self.dead = True
             self.frame_index = 0
 
         if self.facing:
@@ -272,9 +275,11 @@ class Player(pygame.sprite.Sprite):
         self.can_jump -= 1
 
     def update(self):
-        self.input()
+        if not self.dead:
+            self.input()
         self.cooldowns()
         self.rect.x += self.direction.x * self.speed
         self.hitbox.center = self.rect.center
         self.get_status()
-        self.animate(self.status)
+        if not self.dead:
+            self.animate(self.status)
