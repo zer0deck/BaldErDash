@@ -8,7 +8,7 @@ class Wearpon(pygame.sprite.Sprite):
         super().__init__(groups)
         self.facing = player.facing
         # graphic
-        self.image = pygame.Surface((40, 40))  # pygame.SRCALPHA
+        self.image = pygame.Surface((40, 40), pygame.SRCALPHA)  # pygame.SRCALPHA
 
         # placement
         if player.type == "Player Sword":

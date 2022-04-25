@@ -22,7 +22,8 @@ class Bat(Animation):
     def __init__(self, pos, groups):
         animations = {"attack": [], "fly": [], "die": [], "hang": []}
         self.status = "fly"
-        self.health = 10
+        self.health = 100
+        self.damaged = False
         super().__init__(pos, groups, animations, ["Enemy", "Bat"], self.status)
 
     def get_status(self):
@@ -45,6 +46,7 @@ class Bee(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(pos, groups, animations, ["Enemy", "Bee"], self.status)
 
     def get_status(self):
@@ -67,6 +69,7 @@ class Big_Boar(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": [], "walk": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(pos, groups, animations, ["Enemy", "Big Boar"], self.status)
 
     def get_status(self):
@@ -89,6 +92,7 @@ class Boar(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": [], "walk": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(pos, groups, animations, ["Enemy", "Boar"], self.status)
 
     def get_status(self):
@@ -111,6 +115,7 @@ class Goblin_Axe(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(pos, groups, animations, ["Enemy", "Goblin Axe"], self.status)
 
     def get_status(self):
@@ -133,6 +138,7 @@ class Goblin_Halberd(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Goblin Halberd"], self.status
         )
@@ -157,6 +163,7 @@ class Goblin_Rider(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": [], "walk": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Goblin Rider"], self.status
         )
@@ -181,6 +188,7 @@ class Goblin_Spear(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Goblin Spear"], self.status
         )
@@ -205,6 +213,7 @@ class Skeleton(Animation):
         animations = {"attack_1": [], "attack_2": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(pos, groups, animations, ["Enemy", "Skeleton"], self.status)
 
     def get_status(self):
@@ -227,6 +236,7 @@ class Skeleton_Archer(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Skeleton Archer"], self.status
         )
@@ -258,6 +268,7 @@ class Skeleton_Boss(Animation):
         }
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Skeleton Boss"], self.status
         )
@@ -290,6 +301,7 @@ class Skeleton_Mage(Animation):
         }
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Skeleton Mage"], self.status
         )
@@ -321,6 +333,7 @@ class Skeleton_Shield(Animation):
         }
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Skeleton Shield"], self.status
         )
@@ -345,6 +358,7 @@ class Skeleton_Spear(Animation):
         animations = {"attack": [], "idle": [], "die": [], "run": []}
         self.status = "idle"
         self.health = 10
+        self.damaged = False
         super().__init__(
             pos, groups, animations, ["Enemy", "Skeleton Spear"], self.status
         )

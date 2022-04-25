@@ -18,6 +18,7 @@ class Animation(pygame.sprite.Sprite):
         self.frame_index = 0
         self.animation_speed = 0.3
         self.status = status
+        self.pos = pos
         self.image = self.animations[self.status][self.frame_index]
         self.rect = self.image.get_rect(topleft=pos)
         self.damagebox = self.rect.inflate(-80, -60)

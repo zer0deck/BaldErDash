@@ -3,7 +3,8 @@
 import pygame
 
 from ..debug import debug
-from ..settings import DASH_POWER, JUMPS, SPEED, WIDTH
+from ..menu import iteration_Menu, main_Menu
+from ..settings import DASH_POWER, JUMPS, SPEED, UI_FONT, UI_FONT_SIZE, WIDTH
 from ..ui import UI
 from .background import Background
 from .map import Map
@@ -18,6 +19,11 @@ class Level:
         # init screen
         self.display_surface = surface
         self.background = Background(mapname=mapname, screen=self.display_surface)
+        self.paused = False
+        self.esq_pressed = False
+        self.iteracting = False
+        self.contacting = False
+        self.i_pressed = False
 
         # collisions
         self.current_attack = None
@@ -30,9 +36,14 @@ class Level:
         self.visible_sprites = pygame.sprite.Group()
         self.obstacle_sprites = pygame.sprite.Group()
         self.damageboxes = pygame.sprite.Group()
+        self.npcs = pygame.sprite.Group()
 
         # UI
         self.ui = UI()
+        self.iteration_menu_sprites = pygame.sprite.GroupSingle()
+        self.iteration_menu = iteration_Menu(self.iteration_menu_sprites)
+        self.main_menu_sprites = pygame.sprite.GroupSingle()
+        self.main_menu = main_Menu(self.main_menu_sprites)
 
         # map creation
         self.create_level(mapname)
@@ -42,7 +53,7 @@ class Level:
         player = fmap.create(
             tile_groups=[self.visible_sprites, self.obstacle_sprites],
             enemy_groups=[self.visible_sprites, self.enemies],
-            npc_groups=[self.visible_sprites],
+            npc_groups=[self.visible_sprites, self.npcs],
             player_attack=[self.player_attack, self.destroy_attack],
         )
         self.player.add(player)
@@ -98,9 +109,43 @@ class Level:
             for sprite in self.enemies.sprites():
                 if sprite.damagebox.colliderect(player.hitbox):
                     player.health -= 1
+
                 if self.current_attack:
                     if self.current_attack.rect.colliderect(sprite.rect):
-                        sprite.health -= player.wearpon[player.attack_type]["damage"]
+                        if not sprite.damaged:
+                            sprite.health -= player.wearpon[player.attack_type][
+                                "damage"
+                            ]
+                            sprite.damaged = True
+                        font = pygame.font.Font(UI_FONT, UI_FONT_SIZE)
+                        text_damage = font.render(
+                            f"-{player.wearpon[player.attack_type]['damage']}",
+                            True,
+                            (0, 0, 0),
+                        )
+                        self.display_surface.blit(
+                            text_damage,
+                            (sprite.pos[0], sprite.pos[1] - 30),
+                        )
+                else:
+                    sprite.damaged = False
+
+            self.contacting = False
+            for sprite in self.npcs.sprites():
+                if sprite.rect.colliderect(player.rect):
+                    font = pygame.font.Font(UI_FONT, UI_FONT_SIZE)
+                    text_iteraction = font.render(
+                        "Press 'I' to interract", True, (0, 0, 0)
+                    )
+                    self.display_surface.blit(
+                        text_iteraction,
+                        (
+                            self.display_surface.get_width() // 5 * 2,
+                            self.display_surface.get_height() // 4,
+                        ),
+                    )
+                    self.contacting = True
+                    self.iteration_menu.add_text(sprite.text)
 
         elif direct == "v":
             player.gravity()
@@ -153,29 +198,77 @@ class Level:
                 color=(255, 1, 1),
                 rect=sprite.damagebox,
             )
+        for sprite in self.npcs.sprites():
+            pygame.draw.rect(
+                self.display_surface,
+                color=(200, 200, 1),
+                rect=sprite.rect,
+            )
 
-    def launch(self, debug_v=True):
+    def pause(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_ESCAPE]:
+            if not self.esq_pressed:
+                if self.paused:
+                    self.paused = False
+                    self.esq_pressed = True
+                else:
+                    self.paused = True
+                    self.esq_pressed = True
+                self.pause_type = "main"
+        else:
+            self.esq_pressed = False
 
-        # background movement
-        self.background.update(self.world_shift)
+        if keys[pygame.K_i]:
+            if self.contacting:
+                if not self.i_pressed:
+                    if self.iteracting:
+                        self.iteracting = False
+                        self.paused = False
+                        self.i_pressed = True
+                    else:
+                        self.paused = True
+                        self.iteracting = True
+                        self.i_pressed = True
+                    self.pause_type = "iteracting"
+        else:
+            self.i_pressed = False
 
-        # player movement
-        if debug_v == True:
-            self.show_hitboxes()
-        self.player.draw(self.display_surface)
-        self.player.update()
-        self.collision("h")
-        self.collision("v")
+    def launch(self, debug_v=False):
 
-        # surface movement
-        self.visible_sprites.draw(self.display_surface)
-        self.visible_sprites.update(self.world_shift)
+        if not self.paused:
+            # background movement
+            self.background.update(self.world_shift)
 
-        # enemies
+            # player movement
+            if debug_v == True:
+                self.show_hitboxes()
+            self.player.draw(self.display_surface)
+            self.player.update()
+            self.collision("h")
+            self.collision("v")
 
-        self.scroll()
-        self.ui.display(self.player.sprite)
+            # surface movement
+            self.visible_sprites.draw(self.display_surface)
+            self.visible_sprites.update(self.world_shift)
 
-        # debug
-        if debug_v == True:
-            debug(self.player.sprite.direction)
+            # enemies
+
+            self.scroll()
+            self.ui.display(self.player.sprite)
+
+            # debug
+            if debug_v == True:
+                debug(self.player.sprite.direction)
+
+        else:
+            if self.pause_type == "main":
+                self.main_menu_sprites.draw(self.display_surface)
+                self.main_menu_sprites.update()
+            elif self.pause_type == "iteracting":
+                self.collision("h")
+                self.iteration_menu_sprites.draw(self.display_surface)
+                self.iteration_menu.draw_text()
+                self.iteration_menu_sprites.update()
+
+        self.pause()

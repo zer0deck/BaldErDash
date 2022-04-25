@@ -32,7 +32,7 @@ DAMAGE = 10
 # ui
 ITEM_BOX_SIZE = 80
 UI_FONT = "src/Assets/GUI/font.ttf"
-UI_FONT_SIZE = 18
+UI_FONT_SIZE = 32
 TEXT_COLOR = "#EEEEEE"
 
 WEAPON_DATA = {

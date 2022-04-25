@@ -7,7 +7,10 @@ class NPC_1(Animation):
     def __init__(self, pos, groups):
         animations = {"idle": [], "jump": [], "run": []}
         self.status = "idle"
-        super().__init__(pos, groups, animations, ["NPC", "NPC_1"], self.status)
+        super().__init__(
+            pos, groups, animations, ["NPC", "NPC_1"], self.status, size=0.4
+        )
+        self.text = "Hi"
 
     def get_status(self):
         if self.direction.x != 0 or self.direction.y != 0:
@@ -25,7 +28,10 @@ class NPC_2(Animation):
     def __init__(self, pos, groups):
         animations = {"idle": [], "jump": [], "run": []}
         self.status = "idle"
-        super().__init__(pos, groups, animations, ["NPC", "NPC_2"], self.status)
+        super().__init__(
+            pos, groups, animations, ["NPC", "NPC_2"], self.status, size=0.4
+        )
+        self.text = "Hi"
 
     def get_status(self):
         if self.direction.x != 0 or self.direction.y != 0:
@@ -43,7 +49,10 @@ class NPC_3(Animation):
     def __init__(self, pos, groups):
         animations = {"idle": [], "jump": [], "run": []}
         self.status = "idle"
-        super().__init__(pos, groups, animations, ["NPC", "NPC_3"], self.status)
+        super().__init__(
+            pos, groups, animations, ["NPC", "NPC_3"], self.status, size=0.4
+        )
+        self.text = "Hi"
 
     def get_status(self):
         if self.direction.x != 0 or self.direction.y != 0:
@@ -62,8 +71,9 @@ class NPC_Blacksmith(Animation):
         animations = {"Action_1": [], "Action_2": []}
         self.status = "Action_1"
         super().__init__(
-            pos, groups, animations, ["NPC", "NPC_Blacksmith"], self.status
+            pos, groups, animations, ["NPC", "NPC_Blacksmith"], self.status, size=0.4
         )
+        self.text = "Hi"
 
     def get_status(self):
         if self.direction.x != 0 or self.direction.y != 0:
@@ -81,7 +91,10 @@ class NPC_Merchant(Animation):
     def __init__(self, pos, groups):
         animations = {"idle": [], "run": []}
         self.status = "idle"
-        super().__init__(pos, groups, animations, ["NPC", "NPC_Merchant"], self.status)
+        super().__init__(
+            pos, groups, animations, ["NPC", "NPC_Merchant"], self.status, size=0.4
+        )
+        self.text = "Hi"
 
     def get_status(self):
         if self.direction.x != 0 or self.direction.y != 0:

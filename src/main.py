@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 # TODO LIST:
-# 1. Add NPC interactions
+# 1. Add NPC interactions # done
 # 2. Add enemies AI
 # 3. Add levels
 # 4. Fix assets
-# 5. Add more UI
+# 5. Add more UI # no need
 # 6. Add story
 # 7. Add player progress ability
 
