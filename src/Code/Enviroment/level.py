@@ -42,6 +42,7 @@ class Level:
         player = fmap.create(
             tile_groups=[self.visible_sprites, self.obstacle_sprites],
             enemy_groups=[self.visible_sprites, self.enemies],
+            npc_groups=[self.visible_sprites],
             player_attack=[self.player_attack, self.destroy_attack],
         )
         self.player.add(player)
