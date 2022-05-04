@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='BaldErDash',
-      version='0.1.7',
+      version='1.0.0',
       description="Greatest python platformer ever.",
       long_description="No Hair. Dashes. I'sorry if you didn't take a joke...",
       classifiers=[
