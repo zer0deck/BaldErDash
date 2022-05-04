@@ -5,10 +5,10 @@ setup(name='BaldErDash',
       description="Greatest python platformer ever.",
       long_description="No Hair. Dashes. I'sorry if you didn't take a joke...",
       classifiers=[
-        'Development Status :: 0.0.0.0.1 - Alpha',
-        'License :: OSI Approved :: Lesser General Public License, Creative Commons',
+        'Development Status :: 5 - Stable'
+        'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
         'Programming Language :: Python :: 3.9',
-        'Topic :: Game developement :: Pygame',
+        'Topic :: Games/Entertainment',
       ],
       keywords='funniest joke comedy flying circus',
       url='http://github.com/zer0deck/BaldErDash',

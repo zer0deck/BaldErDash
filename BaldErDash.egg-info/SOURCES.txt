@@ -1,0 +1,645 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+BaldErDash.egg-info/PKG-INFO
+BaldErDash.egg-info/SOURCES.txt
+BaldErDash.egg-info/dependency_links.txt
+BaldErDash.egg-info/not-zip-safe
+BaldErDash.egg-info/requires.txt
+BaldErDash.egg-info/top_level.txt
+src/__init__.py
+src/main.py
+src/Assets/.DS_Store
+src/Assets/Backgrounds/.DS_Store
+src/Assets/Backgrounds/Forest/.DS_Store
+src/Assets/Backgrounds/Forest/bg_1.png
+src/Assets/Backgrounds/Forest/bg_2.png
+src/Assets/Backgrounds/Forest/bg_3.png
+src/Assets/Backgrounds/Forest/bg_4.png
+src/Assets/Backgrounds/Forest/bg_5.png
+src/Assets/GUI/.DS_Store
+src/Assets/GUI/font.ttf
+src/Assets/GUI/Buttons/.DS_Store
+src/Assets/GUI/Buttons/button_add_small_green.png
+src/Assets/GUI/Buttons/button_add_small_yellow.png
+src/Assets/GUI/Buttons/button_blue.png
+src/Assets/GUI/Buttons/button_brown.png
+src/Assets/GUI/Buttons/button_circle_color_yellow.png
+src/Assets/GUI/Buttons/button_color_blue.png
+src/Assets/GUI/Buttons/button_color_brown.png
+src/Assets/GUI/Buttons/button_color_green.png
+src/Assets/GUI/Buttons/button_color_red.png
+src/Assets/GUI/Buttons/button_color_yellow.png
+src/Assets/GUI/Buttons/button_green.png
+src/Assets/GUI/Buttons/button_red.png
+src/Assets/GUI/Buttons/button_shadow.png
+src/Assets/GUI/Buttons/button_small_blue.png
+src/Assets/GUI/Buttons/button_small_red.png
+src/Assets/GUI/Buttons/button_square_yellow.png
+src/Assets/GUI/Buttons/button_yellow.png
+src/Assets/GUI/Buttons/page_next.png
+src/Assets/GUI/Buttons/page_prev.png
+src/Assets/GUI/Buttons/Control/button_attack.png
+src/Assets/GUI/Buttons/Control/button_jump.png
+src/Assets/GUI/Buttons/Control/button_move.png
+src/Assets/GUI/Buttons/Control/button_roll.png
+src/Assets/GUI/Buttons/Control/joystick_bg.png
+src/Assets/GUI/Buttons/Control/joystick_point.png
+src/Assets/GUI/Icons/icon_big_battle.png
+src/Assets/GUI/Icons/icon_big_book.png
+src/Assets/GUI/Icons/icon_big_coin.png
+src/Assets/GUI/Icons/icon_big_energy.png
+src/Assets/GUI/Icons/icon_big_setting.png
+src/Assets/GUI/Icons/icon_big_skull.png
+src/Assets/GUI/Icons/icon_big_star.png
+src/Assets/GUI/Icons/icon_small_achievements.png
+src/Assets/GUI/Icons/icon_small_ad.png
+src/Assets/GUI/Icons/icon_small_add.png
+src/Assets/GUI/Icons/icon_small_arrow.png
+src/Assets/GUI/Icons/icon_small_attack.png
+src/Assets/GUI/Icons/icon_small_back.png
+src/Assets/GUI/Icons/icon_small_battle.png
+src/Assets/GUI/Icons/icon_small_block.png
+src/Assets/GUI/Icons/icon_small_cancel.png
+src/Assets/GUI/Icons/icon_small_category.png
+src/Assets/GUI/Icons/icon_small_close.png
+src/Assets/GUI/Icons/icon_small_coin.png
+src/Assets/GUI/Icons/icon_small_confirm.png
+src/Assets/GUI/Icons/icon_small_down.png
+src/Assets/GUI/Icons/icon_small_exclamationmark.png
+src/Assets/GUI/Icons/icon_small_home.png
+src/Assets/GUI/Icons/icon_small_jump.png
+src/Assets/GUI/Icons/icon_small_left.png
+src/Assets/GUI/Icons/icon_small_lock.png
+src/Assets/GUI/Icons/icon_small_message.png
+src/Assets/GUI/Icons/icon_small_minus.png
+src/Assets/GUI/Icons/icon_small_moveleft.png
+src/Assets/GUI/Icons/icon_small_moveright.png
+src/Assets/GUI/Icons/icon_small_music_off.png
+src/Assets/GUI/Icons/icon_small_music_on.png
+src/Assets/GUI/Icons/icon_small_next.png
+src/Assets/GUI/Icons/icon_small_notification.png
+src/Assets/GUI/Icons/icon_small_notificationoff.png
+src/Assets/GUI/Icons/icon_small_pause.png
+src/Assets/GUI/Icons/icon_small_plus.png
+src/Assets/GUI/Icons/icon_small_prev.png
+src/Assets/GUI/Icons/icon_small_profile.png
+src/Assets/GUI/Icons/icon_small_questionmark.png
+src/Assets/GUI/Icons/icon_small_restart.png
+src/Assets/GUI/Icons/icon_small_right.png
+src/Assets/GUI/Icons/icon_small_roll.png
+src/Assets/GUI/Icons/icon_small_setting.png
+src/Assets/GUI/Icons/icon_small_skull.png
+src/Assets/GUI/Icons/icon_small_sound_off.png
+src/Assets/GUI/Icons/icon_small_sound_on.png
+src/Assets/GUI/Icons/icon_small_stages.png
+src/Assets/GUI/Icons/icon_small_star.png
+src/Assets/GUI/Icons/icon_small_timer.png
+src/Assets/GUI/Icons/icon_small_trophy.png
+src/Assets/GUI/Icons/icon_small_up.png
+src/Assets/GUI/Icons/icon_start.png
+src/Assets/GUI/Icons/stage_lock_icon.png
+src/Assets/GUI/Panels/header.png
+src/Assets/GUI/Panels/header_shadow 1.png
+src/Assets/GUI/Panels/panel.png
+src/Assets/GUI/Panels/panel_1.png
+src/Assets/GUI/Panels/panel_2.png
+src/Assets/GUI/Panels/panel_3.png
+src/Assets/GUI/Settings/.DS_Store
+src/Assets/GUI/Settings/Slider Bar/loading_bar_bg.png
+src/Assets/GUI/Settings/Slider Bar/loading_bar_fill.png
+src/Assets/GUI/Settings/Slider Bar/loading_bar_frame.png
+src/Assets/GUI/Settings/Slider Bar/settings_slider_bg.png
+src/Assets/GUI/Settings/Slider Bar/settings_slider_block.png
+src/Assets/GUI/Settings/Slider Bar/settings_slider_blue.png
+src/Assets/GUI/Settings/Slider Bar/settings_slider_fill.png
+src/Assets/GUI/Settings/Slider Bar/settings_slider_frame.png
+src/Assets/GUI/Settings/Slider Bar/settings_slider_yellow.png
+src/Assets/GUI/Settings/Switch/checkbox_off.png
+src/Assets/GUI/Settings/Switch/checkbox_on.png
+src/Assets/GUI/Settings/Switch/switch_off.png
+src/Assets/GUI/Settings/Switch/switch_off_bg.png
+src/Assets/GUI/Settings/Switch/switch_on.png
+src/Assets/GUI/Settings/Switch/switch_on_bg.png
+src/Assets/GUI/Settings/Switch/toggle_circle_off.png
+src/Assets/GUI/Settings/Switch/toggle_circle_on.png
+src/Assets/GUI/Settings/Switch/toggle_square_off.png
+src/Assets/GUI/Settings/Switch/toggle_square_on.png
+src/Assets/GUI/Stage/defeat.png
+src/Assets/GUI/Stage/defeat_shadow.png
+src/Assets/GUI/Stage/page_navi_bg.png
+src/Assets/GUI/Stage/page_navi_point.png
+src/Assets/GUI/Stage/stage_default.png
+src/Assets/GUI/Stage/stage_icon_star_empty.png
+src/Assets/GUI/Stage/stage_icon_star_fill.png
+src/Assets/GUI/Stage/stage_lock.png
+src/Assets/GUI/Stage/star_empty.png
+src/Assets/GUI/Stage/star_full.png
+src/Assets/GUI/Stage/star_shadow.png
+src/Assets/GUI/Stats/character_energy_bar_bg.png
+src/Assets/GUI/Stats/character_energy_bar_fill.png
+src/Assets/GUI/Stats/character_energy_bar_frame.png
+src/Assets/GUI/Stats/character_hp_bar_bg.png
+src/Assets/GUI/Stats/character_hp_bar_fill.png
+src/Assets/GUI/Stats/character_hp_bar_frame.png
+src/Assets/GUI/Stats/character_xp_bar.png
+src/Assets/GUI/Stats/coin_bar_bg.png
+src/Assets/GUI/Stats/heart_empty.png
+src/Assets/GUI/Stats/heart_fill.png
+src/Assets/GUI/Stats/hp_bar_small_bg.png
+src/Assets/GUI/Stats/hp_bar_small_fill.png
+src/Assets/GUI/Stats/hp_bar_small_frame.png
+src/Assets/GUI/Stats/loading_bar_bg.png
+src/Assets/GUI/Stats/loading_bar_fill.png
+src/Assets/GUI/Stats/loading_bar_frame.png
+src/Assets/GUI/Stats/portrait.png
+src/Assets/GUI/Stats/portrait_character.png
+src/Assets/GUI/Textbox/textbox.png
+src/Assets/GUI/Textbox/textbox_arrow.png
+src/Assets/GUI/Textbox/textbox_icon_exclamationmark.png
+src/Assets/GUI/Textbox/textbox_icon_questionmark.png
+src/Assets/GUI/Textbox/textbox_small.png
+src/Assets/Sprites/.DS_Store
+src/Assets/Sprites/Enemy/.DS_Store
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_00.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_01.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_02.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_03.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_04.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_05.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_06.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_07.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_08.png
+src/Assets/Sprites/Enemy/Boar/attack/boar_attack_09.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_0.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_1.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_2.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_3.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_4.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_5.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_6.png
+src/Assets/Sprites/Enemy/Boar/die/boar_die_7.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_0.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_1.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_2.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_3.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_4.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_5.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_6.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_7.png
+src/Assets/Sprites/Enemy/Boar/idle/boar_idle_8.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_00.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_01.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_02.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_03.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_04.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_05.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_06.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_07.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_08.png
+src/Assets/Sprites/Enemy/Boar/run/boar_run_09.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_00.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_01.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_02.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_03.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_04.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_05.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_06.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_07.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_08.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_09.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_10.png
+src/Assets/Sprites/Enemy/Boar/walk/boar_walk_11.png
+src/Assets/Sprites/Main_Character/.DS_Store
+src/Assets/Sprites/Main_Character/Player/.DS_Store
+src/Assets/Sprites/Main_Character/Player Bow/.DS_Store
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_00.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_01.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_02.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_03.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_04.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_05.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_06.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_07.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_08.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_09.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_10.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_11.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_12.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_13.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_1/player_bow_attack_14.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_00.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_01.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_02.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_03.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_04.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_05.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_06.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_07.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_08.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_09.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_10.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_11.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_12.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_13.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_2/player_bow_attack_14.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_00.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_01.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_02.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_03.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_04.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_05.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_06.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_07.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_08.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_09.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_10.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_11.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_12.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_13.png
+src/Assets/Sprites/Main_Character/Player Bow/attack_3/player_bow_attack_14.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_00.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_01.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_02.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_03.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_04.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_05.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_06.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_07.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_08.png
+src/Assets/Sprites/Main_Character/Player Bow/climb/player_bow_climb_09.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_00.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_01.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_02.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_03.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_04.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_05.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_06.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_07.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_08.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_09.png
+src/Assets/Sprites/Main_Character/Player Bow/dash/player_bow_roll_10.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_00.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_01.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_02.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_03.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_04.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_05.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_06.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_07.png
+src/Assets/Sprites/Main_Character/Player Bow/die/player_bow_die_08.png
+src/Assets/Sprites/Main_Character/Player Bow/fall/player_bow_fall.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_0.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_1.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_2.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_3.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_4.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_5.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_6.png
+src/Assets/Sprites/Main_Character/Player Bow/idle/player_bow_idle_7.png
+src/Assets/Sprites/Main_Character/Player Bow/jump/player_bow_rise.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_00.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_01.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_02.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_03.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_04.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_05.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_06.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_07.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_08.png
+src/Assets/Sprites/Main_Character/Player Bow/run/player_bow_run_09.png
+src/Assets/Sprites/Main_Character/Player Spear/.DS_Store
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/.DS_Store
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_00.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_01.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_02.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_03.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_04.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_05.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_06.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_07.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_08.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_09.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_1/player_spear_attack1_10.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/.DS_Store
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_0.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_1.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_2.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_3.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_4.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_5.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_6.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_2/player_spear_attack2_7.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_00.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_01.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_02.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_03.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_04.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_05.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_06.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_07.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_08.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_09.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_10.png
+src/Assets/Sprites/Main_Character/Player Spear/attack_3/player_spear_throw_11.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_00.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_01.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_02.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_03.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_04.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_05.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_06.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_07.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_08.png
+src/Assets/Sprites/Main_Character/Player Spear/climb/player_spear_climb_09.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_00.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_01.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_02.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_03.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_04.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_05.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_06.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_07.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_08.png
+src/Assets/Sprites/Main_Character/Player Spear/dash/player_spear_roll_09.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_00.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_01.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_02.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_03.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_04.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_05.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_06.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_07.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_08.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_09.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_10.png
+src/Assets/Sprites/Main_Character/Player Spear/die/player_spear_die_11.png
+src/Assets/Sprites/Main_Character/Player Spear/fall/player_spear_fall.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_0.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_1.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_2.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_3.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_4.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_5.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_6.png
+src/Assets/Sprites/Main_Character/Player Spear/idle/player_spear_idle_7.png
+src/Assets/Sprites/Main_Character/Player Spear/jump/player_spear_rise.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_00.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_01.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_02.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_03.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_04.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_05.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_06.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_07.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_08.png
+src/Assets/Sprites/Main_Character/Player Spear/run/player_spear_run_09.png
+src/Assets/Sprites/Main_Character/Player Sword/.DS_Store
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_0.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_1.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_2.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_3.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_4.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_5.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_6.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_1/player_sword_attack1_7.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_0.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_1.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_2.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_3.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_4.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_5.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_6.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_2/player_sword_attack2_7.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_00.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_01.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_02.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_03.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_04.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_05.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_06.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_07.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_08.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_09.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_10.png
+src/Assets/Sprites/Main_Character/Player Sword/attack_3/player_sword_attack3_11.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_00.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_01.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_02.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_03.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_04.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_05.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_06.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_07.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_08.png
+src/Assets/Sprites/Main_Character/Player Sword/climb/player_sword_climb_09.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_00.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_01.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_02.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_03.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_04.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_05.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_06.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_07.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_08.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_09.png
+src/Assets/Sprites/Main_Character/Player Sword/dash/player_sword_roll_10.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_00.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_01.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_02.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_03.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_04.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_05.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_06.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_07.png
+src/Assets/Sprites/Main_Character/Player Sword/die/player_sword_die_08.png
+src/Assets/Sprites/Main_Character/Player Sword/fall/player_sword_fall.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_0.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_1.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_2.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_3.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_4.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_5.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_6.png
+src/Assets/Sprites/Main_Character/Player Sword/idle/player_sword_idle_7.png
+src/Assets/Sprites/Main_Character/Player Sword/jump/player_sword_rise.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_00.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_01.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_02.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_03.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_04.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_05.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_06.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_07.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_08.png
+src/Assets/Sprites/Main_Character/Player Sword/run/player_sword_run_09.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_00.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_01.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_02.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_03.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_04.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_05.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_06.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_07.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_08.png
+src/Assets/Sprites/Main_Character/Player/climb/player_climb_09.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_00.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_01.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_02.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_03.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_04.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_05.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_06.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_07.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_08.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_09.png
+src/Assets/Sprites/Main_Character/Player/dash/player_roll_10.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_00.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_01.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_02.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_03.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_04.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_05.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_06.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_07.png
+src/Assets/Sprites/Main_Character/Player/die/player_die_08.png
+src/Assets/Sprites/Main_Character/Player/fall/player_fall.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_0.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_1.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_2.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_3.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_4.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_5.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_6.png
+src/Assets/Sprites/Main_Character/Player/idle/player_idle_7.png
+src/Assets/Sprites/Main_Character/Player/jump/player_rise.png
+src/Assets/Sprites/Main_Character/Player/run/.DS_Store
+src/Assets/Sprites/Main_Character/Player/run/player_run_00.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_01.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_02.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_03.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_04.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_05.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_06.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_07.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_08.png
+src/Assets/Sprites/Main_Character/Player/run/player_run_09.png
+src/Assets/Sprites/NPC/.DS_Store
+src/Assets/Sprites/NPC/NPC_1/.DS_Store
+src/Assets/Sprites/NPC/NPC_1/Jump/npc1_fall.png
+src/Assets/Sprites/NPC/NPC_1/Jump/npc1_rise.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_0.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_1.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_2.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_3.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_4.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_5.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_6.png
+src/Assets/Sprites/NPC/NPC_1/idle/npc1_idle_7.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_00.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_01.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_02.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_03.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_04.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_05.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_06.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_07.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_08.png
+src/Assets/Sprites/NPC/NPC_1/run/npc1_run_09.png
+src/Assets/Tilesets/.DS_Store
+src/Assets/Tilesets/.backForest/.DS_Store
+src/Assets/Tilesets/.backForest/Cornerd1.png
+src/Assets/Tilesets/.backForest/Cornerd2.png
+src/Assets/Tilesets/.backForest/Cornerd3.png
+src/Assets/Tilesets/.backForest/Cornerl1.png
+src/Assets/Tilesets/.backForest/Cornerl10.png
+src/Assets/Tilesets/.backForest/Cornerl11.png
+src/Assets/Tilesets/.backForest/Cornerl2.png
+src/Assets/Tilesets/.backForest/Cornerl3.png
+src/Assets/Tilesets/.backForest/Cornerl4.png
+src/Assets/Tilesets/.backForest/Cornerl5.png
+src/Assets/Tilesets/.backForest/Cornerl6.png
+src/Assets/Tilesets/.backForest/Cornerl7.png
+src/Assets/Tilesets/.backForest/Cornerl8.png
+src/Assets/Tilesets/.backForest/Cornerl9.png
+src/Assets/Tilesets/.backForest/Cornerr1.png
+src/Assets/Tilesets/.backForest/Cornerr10.png
+src/Assets/Tilesets/.backForest/Cornerr11.png
+src/Assets/Tilesets/.backForest/Cornerr2.png
+src/Assets/Tilesets/.backForest/Cornerr3.png
+src/Assets/Tilesets/.backForest/Cornerr4.png
+src/Assets/Tilesets/.backForest/Cornerr5.png
+src/Assets/Tilesets/.backForest/Cornerr6.png
+src/Assets/Tilesets/.backForest/Cornerr7.png
+src/Assets/Tilesets/.backForest/Cornerr8.png
+src/Assets/Tilesets/.backForest/Cornerr9.png
+src/Assets/Tilesets/.backForest/Earth1.png
+src/Assets/Tilesets/.backForest/Earth2.png
+src/Assets/Tilesets/.backForest/Earth3.png
+src/Assets/Tilesets/.backForest/Earth4.png
+src/Assets/Tilesets/.backForest/Earth5.png
+src/Assets/Tilesets/.backForest/Earthl1.png
+src/Assets/Tilesets/.backForest/Earthl2.png
+src/Assets/Tilesets/.backForest/Earthl3.png
+src/Assets/Tilesets/.backForest/Earthl4.png
+src/Assets/Tilesets/.backForest/Earthl5.png
+src/Assets/Tilesets/.backForest/Earthr1.png
+src/Assets/Tilesets/.backForest/Earthr2.png
+src/Assets/Tilesets/.backForest/Earthr3.png
+src/Assets/Tilesets/.backForest/Earthr4.png
+src/Assets/Tilesets/.backForest/Earthr5.png
+src/Assets/Tilesets/.backForest/Floor1.png
+src/Assets/Tilesets/.backForest/Floor2.png
+src/Assets/Tilesets/.backForest/Floor3.png
+src/Assets/Tilesets/.backForest/Floor4.png
+src/Assets/Tilesets/.backForest/Floor5.png
+src/Assets/Tilesets/.backForest/Floor6.png
+src/Assets/Tilesets/.backForest/Floor7.png
+src/Assets/Tilesets/.backForest/Floor8.png
+src/Assets/Tilesets/.backForest/Floor9.png
+src/Assets/Tilesets/.backForest/Flying1.png
+src/Assets/Tilesets/.backForest/Flying2.png
+src/Assets/Tilesets/.backForest/Flying3.png
+src/Assets/Tilesets/.backForest/Flying4.png
+src/Assets/Tilesets/.backForest/Flying5.png
+src/Assets/Tilesets/.backForest/Inside1.png
+src/Assets/Tilesets/.backForest/Inside2.png
+src/Assets/Tilesets/.backForest/Inside3.png
+src/Assets/Tilesets/.backForest/Inside4.png
+src/Assets/Tilesets/.backForest/Inside5.png
+src/Assets/Tilesets/.backForest/Inside6.png
+src/Assets/Tilesets/.backForest/Inside7.png
+src/Assets/Tilesets/.backForest/Insidel2.png
+src/Assets/Tilesets/.backForest/Insidel3.png
+src/Assets/Tilesets/.backForest/Insidel4.png
+src/Assets/Tilesets/.backForest/Insidel5.png
+src/Assets/Tilesets/.backForest/Insider1.png
+src/Assets/Tilesets/.backForest/Insider2.png
+src/Assets/Tilesets/.backForest/Insider3.png
+src/Assets/Tilesets/.backForest/Insider4.png
+src/Assets/Tilesets/.backForest/Insider5.png
+src/Assets/Tilesets/.backForest/Ladder1.png
+src/Assets/Tilesets/.backForest/Ladder2.png
+src/Assets/Tilesets/.backForest/Trap1.png
+src/Assets/Tilesets/.backForest/Trap2.png
+src/Assets/Tilesets/.backForest/insidel1.png
+src/Code/__init__.py
+src/Code/debug.py
+src/Code/importer.py
+src/Code/menu.py
+src/Code/settings.py
+src/Code/ui.py
+src/Code/Characters/__init__.py
+src/Code/Characters/animation.py
+src/Code/Characters/enemies.py
+src/Code/Characters/npcs.py
+src/Code/Characters/player.py
+src/Code/Enviroment/__init__.py
+src/Code/Enviroment/background.py
+src/Code/Enviroment/level.py
+src/Code/Enviroment/map.py
+src/Code/Enviroment/surface.py
+src/Code/Enviroment/wearpons.py
+src/Maps/DevLevel.py
+src/Maps/__init__.py
