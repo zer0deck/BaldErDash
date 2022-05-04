@@ -4,12 +4,20 @@
 
 Play with fun, hope you enjoy this trash!)
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/zer0deck/BaldErDash)](https://github.com/zer0deck/BaldErDash/releases) [![Build Status](https://img.shields.io/github/workflow/status/zer0deck/BaldErDash/master)](https://github.com/zer0deck/BaldErDash/actions/workflows/package-test.yml)  ![](https://visitor-badge.laobi.icu/badge?page_id=zer0deck.BaldErDash)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/zer0deck/BaldErDash)](https://github.com/zer0deck/BaldErDash/releases) [![Build Status](https://img.shields.io/github/workflow/status/zer0deck/BaldErDash/main)](https://github.com/zer0deck/BaldErDash/actions/workflows/package-test.yml)  ![](https://visitor-badge.laobi.icu/badge?page_id=zer0deck.BaldErDash)
 
 # Instalation
 
+## Windows
+
 ```
-creating package is in progress. I'll publish it pip with the first release
+(Invoke-WebRequest https://github.com/zer0deck/BaldErDash/releases/download/v1.0.0/BaldErDash-1.0.0.tar.gz -OutFile BaldErDash-1.0.0.tar.gz) & (pip install BaldErDash-1.0.0.tar.gz)
+```
+
+## Unix-like systems
+
+```
+(wget -O BaldErDash-1.0.0.tar.gz https://github.com/zer0deck/BaldErDash/releases/download/v1.0.0/BaldErDash-1.0.0.tar.gz ) & (pip install BaldErDash-1.0.0.tar.gz)
 ```
 
 # License
