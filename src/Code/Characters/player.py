@@ -1,5 +1,3 @@
-import os
-
 import pygame
 
 from ..importer import import_folder

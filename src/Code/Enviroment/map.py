@@ -42,7 +42,7 @@ class Map:
                 x = j * TILESIZE
                 y = i * TILESIZE
                 if tile == "b":
-                    Bat((x, y), enemy_groups)
+                    Boar((x, y), enemy_groups)
                     continue
                 elif tile == "n1":
                     NPC_1((x, y), npc_groups)
