@@ -3,7 +3,10 @@ __pycache__/
 src/Maps/~$Maps.xlsx
 .gitignore
 src/Maps/Maps.xlsx
-src/Assets/
+src/Assets/Backgrounds/
+src/Assets/GUI/
+src/Assets/Sprites/
+src/Assets/Tilesets/
 src/.backup/
 .vscode/settings.json
 src/Assets.zip
