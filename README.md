@@ -6,6 +6,8 @@ Play with fun, hope you enjoy this trash!)
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/zer0deck/BaldErDash)](https://github.com/zer0deck/BaldErDash/releases) [![Build Status](https://img.shields.io/github/workflow/status/zer0deck/BaldErDash/main)](https://github.com/zer0deck/BaldErDash/actions/workflows/package-test.yml)  ![](https://visitor-badge.laobi.icu/badge?page_id=zer0deck.BaldErDash)
 
+![image](gameplay.png)
+
 # Instalation
 
 ## Windows
